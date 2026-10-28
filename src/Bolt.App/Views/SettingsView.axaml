@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:rice="clr-namespace:KD.Avalonia.Rice.Controls;assembly=KD.Avalonia.Rice"
+             xmlns:icons="clr-namespace:Material.Icons;assembly=Material.Icons"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:vm="using:Bolt.App.ViewModels"
+             x:Class="Bolt.App.Views.SettingsView"
+             x:DataType="vm:SettingsViewModel">
+  <ScrollViewer>
+    <StackPanel Margin="24" Spacing="20" MaxWidth="760" HorizontalAlignment="Left">
+      <TextBlock FontSize="24" FontWeight="SemiBold" Text="Beállítások" />
+
+      <rice:RiceGroupBox Header="Rendszer" Icon="{x:Static icons:MaterialIconKind.Linux}">
+        <Grid ColumnDefinitions="Auto,16,*" RowDefinitions="Auto,6,Auto">
+          <TextBlock Text="Platform" Foreground="{DynamicResource RiceForegroundMutedBrush}" />
+          <TextBlock Grid.Column="2" Text="{Binding PlatformText}" TextWrapping="Wrap" />
+          <TextBlock Grid.Row="2" Text="Adatok" Foreground="{DynamicResource RiceForegroundMutedBrush}" />
+          <SelectableTextBlock Grid.Row="2" Grid.Column="2" Text="{Binding DataDirectory}" TextWrapping="Wrap" />
+        </Grid>
+      </rice:RiceGroupBox>
+
+      <rice:RiceGroupBox Header="API tokenek" Icon="{x:Static icons:MaterialIconKind.KeyOutline}">
+        <StackPanel Spacing="12">
+          <TextBlock TextWrapping="Wrap" Foreground="{DynamicResource RiceForegroundMutedBrush}"
+                     Text="Hostonként megadható token (pl. github.com, gitlab.com, codeberg.org vagy saját GitLab). Magasabb API limitet ad, és privát repókhoz is kell. A token az adatbázisban, titkosítás nélkül tárolódik: elég csak olvasási jog (GitHub: fine-grained, Contents + Metadata read; GitLab: read_api)." />
+          <ItemsControl ItemsSource="{Binding Tokens}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="vm:SettingsViewModel+TokenItem">
+                <DockPanel Margin="0,2">
+                  <Button DockPanel.Dock="Right" Padding="6" Command="{Binding RemoveCommand}"
+                          CommandParameter="{Binding}" ToolTip.Tip="Törlés">
+                    <mi:MaterialIcon Kind="DeleteOutline" />
+                  </Button>
+                  <TextBlock Text="{Binding Host}" FontWeight="SemiBold" Width="240" VerticalAlignment="Center" />
+                  <TextBlock Text="{Binding MaskedToken}" VerticalAlignment="Center"
+                             Foreground="{DynamicResource RiceForegroundMutedBrush}" />
+                </DockPanel>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+          <Grid ColumnDefinitions="240,8,*,8,Auto">
+            <TextBox PlaceholderText="Host (pl. github.com)" Text="{Binding NewHost}" />
+            <TextBox Grid.Column="2" PlaceholderText="Token" PasswordChar="•" Text="{Binding NewToken}" />
+            <Button Grid.Column="4" Classes="accent" Content="Mentés" Command="{Binding SaveTokenCommand}" />
+          </Grid>
+          <TextBlock Text="{Binding Message}" IsVisible="{Binding HasMessage}" TextWrapping="Wrap" />
+        </StackPanel>
+      </rice:RiceGroupBox>
+
+      <rice:RiceGroupBox Header="Store metaadatok (.bolt)" Icon="{x:Static icons:MaterialIconKind.InformationOutline}">
+        <StackPanel Spacing="8">
+          <TextBlock TextWrapping="Wrap"
+                     Text="Egy repó a .bolt/bolt.json fájlban adhatja meg a store-ban megjelenő adatait. Az ikon útvonala a .bolt mappához képest relatív (png, jpg, webp, ico, bmp). Ha egy alkalmazáshoz saját ikont állítasz be, a store nem olvassa tovább a .bolt mappáját." />
+          <Border Padding="12" CornerRadius="8" Background="{DynamicResource RiceSurfaceAltBrush}">
+            <SelectableTextBlock FontFamily="monospace"
+                                 Text="{}{&#10;  &quot;name&quot;: &quot;My App&quot;,&#10;  &quot;version&quot;: &quot;1.2.3&quot;,&#10;  &quot;author&quot;: &quot;Valaki&quot;,&#10;  &quot;icon&quot;: &quot;icon.png&quot;&#10;}" />
+          </Border>
+        </StackPanel>
+      </rice:RiceGroupBox>
+
+      <rice:RiceGroupBox Header="Megjelenés" Icon="{x:Static icons:MaterialIconKind.PaletteOutline}">
+        <rice:ThemeSelector />
+      </rice:RiceGroupBox>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

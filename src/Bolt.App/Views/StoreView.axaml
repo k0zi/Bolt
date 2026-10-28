@@ -1,0 +1,195 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:rice="clr-namespace:KD.Avalonia.Rice.Controls;assembly=KD.Avalonia.Rice"
+             xmlns:icons="clr-namespace:Material.Icons;assembly=Material.Icons"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:vm="using:Bolt.App.ViewModels"
+             x:Class="Bolt.App.Views.StoreView"
+             x:DataType="vm:StoreViewModel">
+  <UserControl.Resources>
+    <!-- One application card. -->
+    <DataTemplate x:Key="AppCardTemplate" x:DataType="vm:AppItemViewModel">
+      <rice:RiceCard Width="340" Margin="8" Header="{Binding Name}" Subtitle="{Binding Subtitle}">
+        <rice:RiceCard.HeaderActions>
+          <Button Padding="6" Background="Transparent" ToolTip.Tip="Továbbiak">
+            <mi:MaterialIcon Kind="DotsVertical" />
+            <Button.Flyout>
+              <MenuFlyout Placement="BottomEdgeAlignedRight">
+                <MenuItem Header="Ikon beállítása…" Command="{Binding SetIconCommand}" />
+                <MenuItem Header="Ikon visszaállítása (.bolt)" Command="{Binding ResetIconCommand}" />
+                <MenuItem Header="Repó megnyitása" Command="{Binding OpenRepositoryCommand}" />
+                <Separator />
+                <MenuItem Header="Törlés a store-ból" Command="{Binding RemoveCommand}" />
+              </MenuFlyout>
+            </Button.Flyout>
+          </Button>
+        </rice:RiceCard.HeaderActions>
+
+        <Grid ColumnDefinitions="64,14,*">
+          <Border Width="64" Height="64" CornerRadius="12" VerticalAlignment="Top" ClipToBounds="True"
+                  Background="{DynamicResource RiceSurfaceAltBrush}">
+            <Panel>
+              <Image Source="{Binding Icon}" IsVisible="{Binding HasIcon}" Stretch="Uniform" />
+              <mi:MaterialIcon Kind="PackageVariantClosed" Width="36" Height="36"
+                               Foreground="{DynamicResource RiceAccentBrush}" IsVisible="{Binding !HasIcon}" />
+            </Panel>
+          </Border>
+          <StackPanel Grid.Column="2" Spacing="6" VerticalAlignment="Center">
+            <TextBlock Text="{Binding VersionText}" TextWrapping="Wrap"
+                       Foreground="{DynamicResource RiceForegroundMutedBrush}" />
+            <Border IsVisible="{Binding UpdateAvailable}" HorizontalAlignment="Left" CornerRadius="6"
+                    Padding="8,2" Background="{DynamicResource RiceAccentBrush}">
+              <TextBlock Text="Frissítés elérhető" FontSize="12"
+                         Foreground="{DynamicResource RiceAccentForegroundBrush}" />
+            </Border>
+            <StackPanel Spacing="4" IsVisible="{Binding IsBusy}">
+              <TextBlock Text="{Binding BusyText}" FontSize="12" TextWrapping="Wrap" />
+              <rice:RiceProgressBar Value="{Binding Progress}" IsIndeterminate="{Binding IsProgressIndeterminate}" />
+            </StackPanel>
+            <TextBlock Text="{Binding Message}" IsVisible="{Binding HasMessage}" FontSize="12" TextWrapping="Wrap"
+                       Classes.error="{Binding IsError}" />
+          </StackPanel>
+        </Grid>
+
+        <rice:RiceCard.Footer>
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button Content="Frissítések keresése" Command="{Binding CheckForUpdateCommand}"
+                    IsVisible="{Binding IsInstalled}" />
+            <Button Content="Eltávolítás" Command="{Binding UninstallCommand}" IsVisible="{Binding IsInstalled}" />
+            <Button Classes="accent" Content="Frissítés" Command="{Binding UpdateCommand}"
+                    IsVisible="{Binding UpdateAvailable}" />
+            <Button Classes="accent" Content="Telepítés" Command="{Binding InstallCommand}"
+                    IsVisible="{Binding !IsInstalled}" />
+          </StackPanel>
+        </rice:RiceCard.Footer>
+      </rice:RiceCard>
+    </DataTemplate>
+
+    <ItemsPanelTemplate x:Key="CardPanel">
+      <WrapPanel />
+    </ItemsPanelTemplate>
+  </UserControl.Resources>
+
+  <UserControl.Styles>
+    <Style Selector="TextBlock.error">
+      <Setter Property="Foreground" Value="{DynamicResource RiceDangerBrush}" />
+    </Style>
+    <Style Selector="Border.status.error">
+      <Setter Property="BorderBrush" Value="{DynamicResource RiceDangerBrush}" />
+    </Style>
+  </UserControl.Styles>
+
+  <DockPanel>
+    <!-- Toolbar -->
+    <Border DockPanel.Dock="Top" Padding="16,12" BorderThickness="0,0,0,1"
+            BorderBrush="{DynamicResource RiceBorderBrush}">
+      <DockPanel>
+        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+          <rice:RiceSpinner IsActive="{Binding IsLoading}" VerticalAlignment="Center" />
+          <Button Command="{Binding RefreshCommand}" ToolTip.Tip="Telepített állapot újraolvasása">
+            <mi:MaterialIcon Kind="Refresh" />
+          </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <Button Classes="accent" Command="{Binding AddRepositoryCommand}">
+            <StackPanel Orientation="Horizontal" Spacing="6">
+              <mi:MaterialIcon Kind="Plus" />
+              <TextBlock Text="Repó hozzáadása" />
+            </StackPanel>
+          </Button>
+          <Button Command="{Binding CheckAllUpdatesCommand}">
+            <StackPanel Orientation="Horizontal" Spacing="6">
+              <mi:MaterialIcon Kind="Update" />
+              <TextBlock Text="Frissítések keresése" />
+            </StackPanel>
+          </Button>
+          <Button Command="{Binding UpdateAllCommand}" IsVisible="{Binding HasUpdates}">
+            <StackPanel Orientation="Horizontal" Spacing="6">
+              <mi:MaterialIcon Kind="DownloadMultiple" />
+              <TextBlock Text="{Binding UpdateCount, StringFormat='Összes frissítése ({0})'}" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+      </DockPanel>
+    </Border>
+
+    <!-- Unsupported OS -->
+    <Border DockPanel.Dock="Top" Margin="16,12,16,0" Padding="12,8" CornerRadius="8" BorderThickness="1"
+            BorderBrush="{DynamicResource RiceDangerBrush}" IsVisible="{Binding !IsPlatformSupported}">
+      <TextBlock TextWrapping="Wrap"
+                 Text="{Binding PlatformText, StringFormat='Ez a rendszer nem támogatott ({0}): telepíteni csak Debian/Ubuntu (deb), Fedora/openSUSE (rpm) és Windows (msi/exe) alatt lehet.'}" />
+    </Border>
+
+    <!-- Status message -->
+    <Border DockPanel.Dock="Top" Margin="16,12,16,0" Padding="12,8" CornerRadius="8" BorderThickness="1"
+            Classes="status" Classes.error="{Binding IsStatusError}"
+            BorderBrush="{DynamicResource RiceBorderBrush}" Background="{DynamicResource RiceSurfaceBrush}"
+            IsVisible="{Binding HasStatus}">
+      <DockPanel>
+        <Button DockPanel.Dock="Right" Padding="4" Background="Transparent" VerticalAlignment="Top"
+                Command="{Binding DismissStatusCommand}" ToolTip.Tip="Bezárás">
+          <mi:MaterialIcon Kind="Close" />
+        </Button>
+        <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" VerticalAlignment="Center" />
+      </DockPanel>
+    </Border>
+
+    <Panel>
+      <!-- Empty store -->
+      <StackPanel IsVisible="{Binding IsEmpty}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  Spacing="12" MaxWidth="460">
+        <mi:MaterialIcon Kind="StorefrontOutline" Width="64" Height="64"
+                         Foreground="{DynamicResource RiceAccentBrush}" />
+        <TextBlock FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center" Text="Még üres a store" />
+        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Foreground="{DynamicResource RiceForegroundMutedBrush}"
+                   Text="Adj hozzá egy GitHub, GitLab vagy Codeberg repót, amelynek a kiadásai között van a rendszeredhez való csomag." />
+        <Button Classes="accent" HorizontalAlignment="Center" Content="Repó hozzáadása"
+                Command="{Binding AddRepositoryCommand}" />
+      </StackPanel>
+
+      <ScrollViewer IsVisible="{Binding !IsEmpty}">
+        <StackPanel Margin="16" Spacing="20">
+          <rice:RiceGroupBox Header="Telepített" Icon="{x:Static icons:MaterialIconKind.CheckCircleOutline}">
+            <StackPanel Spacing="8">
+              <TextBlock IsVisible="{Binding Installed.IsEmpty}" Margin="8"
+                         Foreground="{DynamicResource RiceForegroundMutedBrush}"
+                         Text="Nincs telepített alkalmazás." />
+              <ItemsControl ItemsSource="{Binding Installed.Items}" ItemsPanel="{StaticResource CardPanel}"
+                            ItemTemplate="{StaticResource AppCardTemplate}" />
+              <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center"
+                          IsVisible="{Binding Installed.HasPages}">
+                <Button Command="{Binding Installed.PreviousPageCommand}" ToolTip.Tip="Előző oldal">
+                  <mi:MaterialIcon Kind="ChevronLeft" />
+                </Button>
+                <TextBlock Text="{Binding Installed.PageText}" VerticalAlignment="Center" />
+                <Button Command="{Binding Installed.NextPageCommand}" ToolTip.Tip="Következő oldal">
+                  <mi:MaterialIcon Kind="ChevronRight" />
+                </Button>
+              </StackPanel>
+            </StackPanel>
+          </rice:RiceGroupBox>
+
+          <rice:RiceGroupBox Header="Telepíthető" Icon="{x:Static icons:MaterialIconKind.DownloadOutline}">
+            <StackPanel Spacing="8">
+              <TextBlock IsVisible="{Binding Available.IsEmpty}" Margin="8"
+                         Foreground="{DynamicResource RiceForegroundMutedBrush}"
+                         Text="Minden alkalmazás telepítve van." />
+              <ItemsControl ItemsSource="{Binding Available.Items}" ItemsPanel="{StaticResource CardPanel}"
+                            ItemTemplate="{StaticResource AppCardTemplate}" />
+              <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center"
+                          IsVisible="{Binding Available.HasPages}">
+                <Button Command="{Binding Available.PreviousPageCommand}" ToolTip.Tip="Előző oldal">
+                  <mi:MaterialIcon Kind="ChevronLeft" />
+                </Button>
+                <TextBlock Text="{Binding Available.PageText}" VerticalAlignment="Center" />
+                <Button Command="{Binding Available.NextPageCommand}" ToolTip.Tip="Következő oldal">
+                  <mi:MaterialIcon Kind="ChevronRight" />
+                </Button>
+              </StackPanel>
+            </StackPanel>
+          </rice:RiceGroupBox>
+        </StackPanel>
+      </ScrollViewer>
+    </Panel>
+  </DockPanel>
+</UserControl>

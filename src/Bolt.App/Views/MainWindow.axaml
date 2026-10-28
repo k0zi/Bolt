@@ -1,0 +1,29 @@
+<rice:RiceWindow xmlns="https://github.com/avaloniaui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:rice="clr-namespace:KD.Avalonia.Rice.Controls;assembly=KD.Avalonia.Rice"
+                 xmlns:icons="clr-namespace:Material.Icons;assembly=Material.Icons"
+                 xmlns:vm="using:Bolt.App.ViewModels"
+                 x:Class="Bolt.App.Views.MainWindow"
+                 x:DataType="vm:MainWindowViewModel"
+                 Width="1180" Height="760" MinWidth="720" MinHeight="480"
+                 WindowStartupLocation="CenterScreen"
+                 ShowThemeSettingsButton="True" ShowAboutButton="True">
+  <rice:RiceWindow.TitleBarContent>
+    <TextBox Width="280" VerticalAlignment="Center" PlaceholderText="Keresés…"
+             Text="{Binding Store.SearchText}" />
+  </rice:RiceWindow.TitleBarContent>
+
+  <DockPanel>
+    <rice:RiceSideMenu Name="SideMenu" DockPanel.Dock="Left">
+      <rice:RiceSideMenu.Header>
+        <TextBlock FontWeight="SemiBold" Text="Bolt" />
+      </rice:RiceSideMenu.Header>
+      <rice:RiceSideMenuItem Name="StoreItem" Icon="{x:Static icons:MaterialIconKind.StorefrontOutline}"
+                             Header="Store" IsSelected="True" />
+      <rice:RiceSideMenuItem Name="SettingsItem" Icon="{x:Static icons:MaterialIconKind.CogOutline}"
+                             Header="Beállítások" />
+    </rice:RiceSideMenu>
+
+    <ContentControl Content="{Binding CurrentPage}" />
+  </DockPanel>
+</rice:RiceWindow>

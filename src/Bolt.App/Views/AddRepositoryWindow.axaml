@@ -1,0 +1,34 @@
+<rice:RiceWindow xmlns="https://github.com/avaloniaui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:rice="clr-namespace:KD.Avalonia.Rice.Controls;assembly=KD.Avalonia.Rice"
+                 xmlns:vm="using:Bolt.App.ViewModels"
+                 x:Class="Bolt.App.Views.AddRepositoryWindow"
+                 x:DataType="vm:AddRepositoryViewModel"
+                 Title="Repó hozzáadása"
+                 Width="560" SizeToContent="Height"
+                 CanResize="False" CanMinimize="False" CanMaximize="False"
+                 ShowThemeToggle="False" ShowInTaskbar="False"
+                 WindowStartupLocation="CenterOwner">
+  <rice:RiceLoadingOverlay IsActive="{Binding IsBusy}" Message="Kiadások ellenőrzése…">
+    <StackPanel Margin="24,20" Spacing="12">
+      <TextBlock FontSize="18" FontWeight="SemiBold" Text="Repó hozzáadása" />
+      <TextBlock TextWrapping="Wrap" Foreground="{DynamicResource RiceForegroundMutedBrush}"
+                 Text="GitHub, GitLab (gitlab.com vagy saját szerver) vagy Codeberg repó címe. A store csak akkor veszi fel, ha a kiadások (release) között van a rendszeredhez való csomag." />
+      <TextBox Name="UrlBox" Text="{Binding Url}" PlaceholderText="https://github.com/tulajdonos/repo" />
+      <TextBlock Text="{Binding Message}" IsVisible="{Binding HasMessage}" TextWrapping="Wrap"
+                 Classes.error="{Binding IsError}" />
+      <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" Margin="0,8,0,0">
+        <Button Name="CloseButton" Content="Bezárás" IsCancel="True" MinWidth="96"
+                HorizontalContentAlignment="Center" />
+        <Button Classes="accent" Content="Hozzáadás" IsDefault="True" MinWidth="96"
+                HorizontalContentAlignment="Center" Command="{Binding AddCommand}" />
+      </StackPanel>
+    </StackPanel>
+  </rice:RiceLoadingOverlay>
+
+  <rice:RiceWindow.Styles>
+    <Style Selector="TextBlock.error">
+      <Setter Property="Foreground" Value="{DynamicResource RiceDangerBrush}" />
+    </Style>
+  </rice:RiceWindow.Styles>
+</rice:RiceWindow>
