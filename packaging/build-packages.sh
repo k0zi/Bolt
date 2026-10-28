@@ -65,7 +65,7 @@ find "$STAGE/app" -name '*.pdb' -delete
 # Menu entry with the absolute launcher path.
 sed "s|@BIN@|/usr/bin/bolt|" "$ROOT/packaging/bolt.desktop" > "$STAGE/bolt.desktop"
 cp "$ROOT/src/Bolt.App/Assets/bolt.png" "$STAGE/bolt.png"
-cp "$ROOT/LICENSE" "$STAGE/LICENSE"
+cp -r "$ROOT/LICENSE" "$ROOT/THIRD_PARTY_NOTICES.md" "$ROOT/licenses" "$STAGE/"
 # A umask of 002 would otherwise ship group-writable files.
 chmod -R go-w "$STAGE"
 

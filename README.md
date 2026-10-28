@@ -96,3 +96,13 @@ packages attached is created by any of:
 
 The tag must match the version computed for that commit, so create it with `dotnet nbgv tag` rather than picking a
 number by hand. CI never bumps `version.json`; it only warns when the month is out of date.
+
+## License
+
+Bolt is licensed under the [MIT license](LICENSE). The packages also redistribute third-party components (.NET
+runtime, Avalonia, SkiaSharp/HarfBuzz, SQLite, the Inter font, Material Design Icons, …) under their own licenses;
+see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and the `licenses/` directory. The packages install these to
+`/usr/share/doc/bolt/` (deb) and `/usr/share/licenses/bolt/` (rpm).
+
+GitHub, GitLab, Codeberg, Forgejo, Gitea and the operating system names used for the themes are trademarks of their
+respective owners; Bolt is not affiliated with or endorsed by them.
