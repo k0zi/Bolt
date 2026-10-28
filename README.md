@@ -1,7 +1,7 @@
 # Bolt
 
 <p align="center">
-  <img src="docs/assets/bolt-header.png" alt="Bolt — Desktop software store" width="900" />
+  <img src="docs/assets/bolt-header.png" alt="Bolt — servers and flowing data" width="900" />
 </p>
 
 **English** | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | [中文](README.zh.md) | [日本語](README.ja.md) | [Magyar](README.hu.md)
