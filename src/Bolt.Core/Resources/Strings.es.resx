@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from one translation table; keep the keys of all languages in sync. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="UnsupportedOs" xml:space="preserve">
+    <value>Este sistema operativo no es compatible.</value>
+  </data>
+  <data name="OsNotSupportedNamed" xml:space="preserve">
+    <value>Este sistema operativo ({0}) no es compatible.</value>
+  </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>no compatible</value>
+  </data>
+  <data name="TokenHostEmpty" xml:space="preserve">
+    <value>El host y el token no pueden estar vacíos.</value>
+  </data>
+  <data name="PackageUnreadable" xml:space="preserve">
+    <value>No se puede leer el paquete: {0}
+{1}</value>
+  </data>
+  <data name="FormatNotInstallableOnLinux" xml:space="preserve">
+    <value>Este formato no se puede instalar en Linux: {0}</value>
+  </data>
+  <data name="UnsupportedPackageManager" xml:space="preserve">
+    <value>Gestor de paquetes no compatible: {0}</value>
+  </data>
+  <data name="InstallDenied" xml:space="preserve">
+    <value>Instalación cancelada: se rechazó la solicitud de autorización.</value>
+  </data>
+  <data name="UninstallDenied" xml:space="preserve">
+    <value>Desinstalación cancelada: se rechazó la solicitud de autorización.</value>
+  </data>
+  <data name="InstallNotAuthorized" xml:space="preserve">
+    <value>La instalación falló: sin autorización.</value>
+  </data>
+  <data name="UninstallNotAuthorized" xml:space="preserve">
+    <value>La desinstalación falló: sin autorización.</value>
+  </data>
+  <data name="InstallFailed" xml:space="preserve">
+    <value>La instalación falló (código de salida: {0}).
+{1}</value>
+  </data>
+  <data name="UninstallFailed" xml:space="preserve">
+    <value>La desinstalación falló (código de salida: {0}).
+{1}</value>
+  </data>
+  <data name="InstallCancelled" xml:space="preserve">
+    <value>Instalación cancelada.</value>
+  </data>
+  <data name="UninstallCancelled" xml:space="preserve">
+    <value>Desinstalación cancelada.</value>
+  </data>
+  <data name="MsiexecFailed" xml:space="preserve">
+    <value>msiexec terminó con un error (código: {0}).</value>
+  </data>
+  <data name="InstallerFailed" xml:space="preserve">
+    <value>El instalador terminó con un error (código: {0}).</value>
+  </data>
+  <data name="UninstallerFailed" xml:space="preserve">
+    <value>La desinstalación terminó con un error (código: {0}).</value>
+  </data>
+  <data name="InstalledButNotFound" xml:space="preserve">
+    <value>La instalación terminó, pero el programa no aparece entre los programas instalados.</value>
+  </data>
+  <data name="NoUninstallCommand" xml:space="preserve">
+    <value>No se encontró ningún comando de desinstalación.</value>
+  </data>
+  <data name="CannotStart" xml:space="preserve">
+    <value>No se puede iniciar: {0}</value>
+  </data>
+  <data name="CannotStartReason" xml:space="preserve">
+    <value>No se puede iniciar: {0} ({1})</value>
+  </data>
+  <data name="ElevationDenied" xml:space="preserve">
+    <value>La operación se canceló: se denegó el permiso de administrador.</value>
+  </data>
+  <data name="AppNotFound" xml:space="preserve">
+    <value>No se encontró la aplicación.</value>
+  </data>
+  <data name="RepoAlreadyExists" xml:space="preserve">
+    <value>{0} ya está en la tienda.</value>
+  </data>
+  <data name="RepoHasNoReleases" xml:space="preserve">
+    <value>{0} no tiene releases, así que no se añadió a la tienda.</value>
+  </data>
+  <data name="RepoHasNoMatchingPackage" xml:space="preserve">
+    <value>Las releases de {0} no contienen ningún paquete {1} ({2}), así que no se añadió a la tienda.</value>
+  </data>
+  <data name="AppAdded" xml:space="preserve">
+    <value>{0} añadido ({1}).</value>
+  </data>
+  <data name="NoInstallablePackage" xml:space="preserve">
+    <value>No hay ningún paquete instalable para este sistema.</value>
+  </data>
+  <data name="InvalidRepoUrl" xml:space="preserve">
+    <value>URL de repositorio no válida. Ejemplo: https://github.com/owner/repo</value>
+  </data>
+  <data name="HostUnreachable" xml:space="preserve">
+    <value>{0} no está accesible: {1}</value>
+  </data>
+  <data name="HostTimeout" xml:space="preserve">
+    <value>{0} no respondió a tiempo.</value>
+  </data>
+  <data name="EmptyResponse" xml:space="preserve">
+    <value>Respuesta vacía.</value>
+  </data>
+  <data name="InvalidResponse" xml:space="preserve">
+    <value>Respuesta no válida: {0}</value>
+  </data>
+  <data name="RepoNotFound" xml:space="preserve">
+    <value>No se encontró el repositorio: {0}</value>
+  </data>
+  <data name="AuthRequired" xml:space="preserve">
+    <value>Se requiere autenticación ({0}): añade un token en los ajustes.</value>
+  </data>
+  <data name="RateLimited" xml:space="preserve">
+    <value>{0} rechazó la solicitud (¿límite de peticiones?). Un token en los ajustes puede ayudar.</value>
+  </data>
+  <data name="HostError" xml:space="preserve">
+    <value>Error de {0}: {1} {2}</value>
+  </data>
+</root>

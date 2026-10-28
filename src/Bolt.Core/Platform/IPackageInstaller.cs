@@ -1,4 +1,5 @@
 using Bolt.Core.Model;
+using Bolt.Core.Resources;
 
 namespace Bolt.Core.Platform;
 
@@ -25,10 +26,10 @@ public sealed class UnsupportedInstaller : IPackageInstaller
 {
     public Task<InstalledPackage> InstallAsync(string file, PackageFormat format, string displayName,
                                                CancellationToken ct = default) =>
-        throw new InstallerException("Ez az operációs rendszer nem támogatott.");
+        throw new InstallerException(Strings.UnsupportedOs);
 
     public Task UninstallAsync(Installation installation, CancellationToken ct = default) =>
-        throw new InstallerException("Ez az operációs rendszer nem támogatott.");
+        throw new InstallerException(Strings.UnsupportedOs);
 
     public Task<string?> GetInstalledVersionAsync(Installation installation, CancellationToken ct = default) =>
         Task.FromResult<string?>(installation.InstalledVersion);

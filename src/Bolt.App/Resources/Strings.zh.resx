@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from one translation table; keep the keys of all languages in sync. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDescription" xml:space="preserve">
+    <value>基于 GitHub、GitLab 和 Codeberg 发布版本的软件商店，使用系统自带的安装程序。</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索…</value>
+  </data>
+  <data name="Store" xml:space="preserve">
+    <value>商店</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="AddRepository" xml:space="preserve">
+    <value>添加仓库</value>
+  </data>
+  <data name="AddRepositoryHint" xml:space="preserve">
+    <value>GitHub、GitLab（gitlab.com 或自托管）或 Codeberg 仓库的地址。只有当其发布版本中包含适用于你的系统的软件包时，商店才会添加它。</value>
+  </data>
+  <data name="RepoUrlPlaceholder" xml:space="preserve">
+    <value>https://github.com/owner/repo</value>
+  </data>
+  <data name="CheckingReleases" xml:space="preserve">
+    <value>正在检查发布版本…</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>系统</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>平台</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>数据</value>
+  </data>
+  <data name="ApiTokens" xml:space="preserve">
+    <value>API 令牌</value>
+  </data>
+  <data name="ApiTokensHint" xml:space="preserve">
+    <value>可以为每个主机设置令牌（例如 github.com、gitlab.com、codeberg.org 或自建的 GitLab）。令牌可提高 API 限额，访问私有仓库时也需要它。令牌以未加密形式存储在数据库中，因此只读权限即可（GitHub：fine-grained，Contents + Metadata read；GitLab：read_api）。</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="HostPlaceholder" xml:space="preserve">
+    <value>主机（例如 github.com）</value>
+  </data>
+  <data name="Token" xml:space="preserve">
+    <value>令牌</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="TokenSaved" xml:space="preserve">
+    <value>令牌已保存：{0}</value>
+  </data>
+  <data name="MetadataHeader" xml:space="preserve">
+    <value>商店元数据（.bolt）</value>
+  </data>
+  <data name="MetadataHint" xml:space="preserve">
+    <value>仓库可以在 .bolt/bolt.json 文件中定义商店显示的信息。图标路径相对于 .bolt 文件夹（png、jpg、webp、ico、bmp）。如果你为某个应用设置了自定义图标，商店将不再读取其 .bolt 文件夹。</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="SetIcon" xml:space="preserve">
+    <value>设置图标…</value>
+  </data>
+  <data name="ResetIcon" xml:space="preserve">
+    <value>重置图标（.bolt）</value>
+  </data>
+  <data name="OpenRepository" xml:space="preserve">
+    <value>打开仓库</value>
+  </data>
+  <data name="RemoveFromStore" xml:space="preserve">
+    <value>从商店中移除</value>
+  </data>
+  <data name="RemoveFromStoreConfirm" xml:space="preserve">
+    <value>{0} 将从商店中移除。以后可以重新添加该仓库。</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>有可用更新</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="CheckingForUpdates" xml:space="preserve">
+    <value>正在检查更新…</value>
+  </data>
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>有新版本可用：{0}</value>
+  </data>
+  <data name="NoNewerVersion" xml:space="preserve">
+    <value>没有更新的版本。</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>卸载</value>
+  </data>
+  <data name="UninstallConfirm" xml:space="preserve">
+    <value>确定要卸载 {0} 吗？</value>
+  </data>
+  <data name="Downloading" xml:space="preserve">
+    <value>正在下载…</value>
+  </data>
+  <data name="Installing" xml:space="preserve">
+    <value>正在安装（可能需要输入密码）…</value>
+  </data>
+  <data name="Uninstalling" xml:space="preserve">
+    <value>正在卸载…</value>
+  </data>
+  <data name="Installed" xml:space="preserve">
+    <value>已安装 {0}。</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>已更新 {0}。</value>
+  </data>
+  <data name="Uninstalled" xml:space="preserve">
+    <value>已卸载 {0}。</value>
+  </data>
+  <data name="SavingIcon" xml:space="preserve">
+    <value>正在保存图标…</value>
+  </data>
+  <data name="ResettingIcon" xml:space="preserve">
+    <value>正在重置图标…</value>
+  </data>
+  <data name="VersionInstalledUpdate" xml:space="preserve">
+    <value>已安装：{0} → 可用：{1}</value>
+  </data>
+  <data name="VersionInstalled" xml:space="preserve">
+    <value>已安装：{0}</value>
+  </data>
+  <data name="VersionLatest" xml:space="preserve">
+    <value>最新：{0}</value>
+  </data>
+  <data name="ReloadInstalledState" xml:space="preserve">
+    <value>重新读取安装状态</value>
+  </data>
+  <data name="UpdateAll" xml:space="preserve">
+    <value>全部更新（{0}）</value>
+  </data>
+  <data name="UnsupportedSystem" xml:space="preserve">
+    <value>不支持此系统（{0}）：仅可在 Debian/Ubuntu（deb）、Fedora/openSUSE（rpm）和 Windows（msi/exe）上安装。</value>
+  </data>
+  <data name="EmptyStoreTitle" xml:space="preserve">
+    <value>商店还是空的</value>
+  </data>
+  <data name="EmptyStoreHint" xml:space="preserve">
+    <value>添加一个 GitHub、GitLab 或 Codeberg 仓库，其发布版本中需包含适用于你的系统的软件包。</value>
+  </data>
+  <data name="InstalledGroup" xml:space="preserve">
+    <value>已安装</value>
+  </data>
+  <data name="AvailableGroup" xml:space="preserve">
+    <value>可安装</value>
+  </data>
+  <data name="NoInstalledApps" xml:space="preserve">
+    <value>没有已安装的应用程序。</value>
+  </data>
+  <data name="AllInstalled" xml:space="preserve">
+    <value>所有应用程序均已安装。</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>上一页</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="PageText" xml:space="preserve">
+    <value>第 {0} / {1} 页</value>
+  </data>
+  <data name="InstalledStateCheckFailed" xml:space="preserve">
+    <value>无法检查安装状态：{0}</value>
+  </data>
+  <data name="AllUpToDate" xml:space="preserve">
+    <value>所有已安装的应用程序均为最新版本。</value>
+  </data>
+  <data name="UpdatesAvailableCount" xml:space="preserve">
+    <value>{0} 个应用程序有可用更新。</value>
+  </data>
+  <data name="ReposUnreachable" xml:space="preserve">
+    <value>无法访问的仓库（{0}）：{1}</value>
+  </data>
+  <data name="ChooseIcon" xml:space="preserve">
+    <value>选择图标</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>图像</value>
+  </data>
+</root>

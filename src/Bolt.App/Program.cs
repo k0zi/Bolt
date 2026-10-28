@@ -1,4 +1,7 @@
 using Avalonia;
+using Bolt.App.Localization;
+using Bolt.App.Resources;
+using Bolt.Core;
 using KD.Avalonia.Rice;
 using KD.Avalonia.Rice.Options;
 using KD.Avalonia.Rice.Theming;
@@ -8,8 +11,11 @@ namespace Bolt.App;
 internal static class Program
 {
     [STAThread]
-    public static void Main(string[] args) =>
+    public static void Main(string[] args)
+    {
+        Localizer.Instance.Load(new AppPaths().SettingsPath);
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+    }
 
     public static AppBuilder BuildAvaloniaApp() =>
         AppBuilder.Configure<App>()
@@ -23,7 +29,7 @@ internal static class Program
                     AppId = "bolt",
                     Name = "Bolt",
                     Author = "k0zi",
-                    Description = "Szoftver store GitHub, GitLab és Codeberg kiadásokból, a rendszer saját telepítőjével.",
+                    Description = Strings.AppDescription,
                     IconUri = "avares://Bolt/Assets/bolt.png",
                 };
                 options.SupportedThemes = BuiltInThemes.All;

@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.Versioning;
 using Bolt.Core.Model;
+using Bolt.Core.Resources;
 using Microsoft.Win32;
 
 namespace Bolt.Core.Platform;
@@ -29,15 +30,15 @@ public sealed class WindowsInstaller : IPackageInstaller
             exitCode = await RunAsync("msiexec.exe", $"/i \"{file}\" /passive /norestart", elevate: false, ct)
                 .ConfigureAwait(false);
             if (exitCode == MsiUserCancel)
-                throw new InstallerException("A telepítés megszakítva.");
+                throw new InstallerException(Strings.InstallCancelled);
             if (!MsiSuccess.Contains(exitCode))
-                throw new InstallerException($"Az msiexec hibával állt le (kód: {exitCode}).");
+                throw new InstallerException(string.Format(Strings.MsiexecFailed, exitCode));
         }
         else
         {
             exitCode = await RunAsync(file, "", elevate: true, ct).ConfigureAwait(false);
             if (exitCode != 0)
-                throw new InstallerException($"A telepítő hibával állt le (kód: {exitCode}).");
+                throw new InstallerException(string.Format(Strings.InstallerFailed, exitCode));
         }
 
         var after = Snapshot();
@@ -47,7 +48,7 @@ public sealed class WindowsInstaller : IPackageInstaller
                     // An upgrade keeps the existing entry: look it up by name.
                     ?? after.Values.FirstOrDefault(e => Matches(e, displayName))
                     ?? throw new InstallerException(
-                        "A telepítés lefutott, de a program nem található a telepített programok között.");
+                        Strings.InstalledButNotFound);
         return new InstalledPackage(entry.Id, entry.UninstallCommand);
     }
 
@@ -55,12 +56,12 @@ public sealed class WindowsInstaller : IPackageInstaller
     {
         var command = Snapshot().GetValueOrDefault(installation.PackageId)?.UninstallCommand
                       ?? installation.UninstallCommand
-                      ?? throw new InstallerException("Nem található eltávolító parancs.");
+                      ?? throw new InstallerException(Strings.NoUninstallCommand);
         var exitCode = await RunAsync("cmd.exe", $"/s /c \"{command}\"", elevate: true, ct).ConfigureAwait(false);
         if (exitCode == MsiUserCancel)
-            throw new InstallerException("Az eltávolítás megszakítva.");
+            throw new InstallerException(Strings.UninstallCancelled);
         if (!MsiSuccess.Contains(exitCode))
-            throw new InstallerException($"Az eltávolítás hibával állt le (kód: {exitCode}).");
+            throw new InstallerException(string.Format(Strings.UninstallerFailed, exitCode));
     }
 
     public Task<string?> GetInstalledVersionAsync(Installation installation, CancellationToken ct = default) =>
@@ -78,13 +79,13 @@ public sealed class WindowsInstaller : IPackageInstaller
             info.Verb = "runas";
         try
         {
-            using var process = Process.Start(info) ?? throw new InstallerException($"Nem indítható: {fileName}");
+            using var process = Process.Start(info) ?? throw new InstallerException(string.Format(Strings.CannotStart, fileName));
             await process.WaitForExitAsync(ct).ConfigureAwait(false);
             return process.ExitCode;
         }
         catch (Win32Exception ex) when (ex.NativeErrorCode == 1223) // ERROR_CANCELLED: UAC declined
         {
-            throw new InstallerException("A művelet megszakítva: a rendszergazdai jogosultság el lett utasítva.", ex);
+            throw new InstallerException(Strings.ElevationDenied, ex);
         }
     }
 

@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using Bolt.Core.Model;
+using Bolt.Core.Resources;
 
 namespace Bolt.Core.Platform;
 
@@ -21,7 +22,7 @@ public sealed record PlatformInfo(string OsName, PackageManager PackageManager, 
     public bool IsSupported => PackageManager != PackageManager.None;
 
     public override string ToString() =>
-        $"{OsName} – {(IsSupported ? string.Join(", ", Formats).ToLowerInvariant() : "nem támogatott")}, " +
+        $"{OsName} – {(IsSupported ? string.Join(", ", Formats).ToLowerInvariant() : Strings.NotSupported)}, " +
         $"{PackageManager.ToString().ToLowerInvariant()}, {Architecture.ToString().ToLowerInvariant()}";
 }
 

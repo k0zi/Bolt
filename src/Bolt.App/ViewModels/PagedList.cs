@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using Bolt.App.Resources;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -37,7 +38,7 @@ public sealed partial class PagedList<T> : ObservableObject
 
     public bool IsEmpty => TotalCount == 0;
 
-    public string PageText => $"{PageIndex + 1} / {PageCount}. oldal";
+    public string PageText => string.Format(Strings.PageText, PageIndex + 1, PageCount);
 
     /// <summary>Replaces the items; the current page is kept when it still exists.</summary>
     public void SetSource(IReadOnlyList<T> source)
@@ -48,6 +49,9 @@ public sealed partial class PagedList<T> : ObservableObject
         PageIndex = Math.Clamp(PageIndex, 0, PageCount - 1);
         Fill();
     }
+
+    /// <summary>Rebuilds <see cref="PageText"/> after the UI language changed.</summary>
+    public void RefreshTexts() => OnPropertyChanged(nameof(PageText));
 
     [RelayCommand(CanExecute = nameof(CanGoPrevious))]
     private void PreviousPage()

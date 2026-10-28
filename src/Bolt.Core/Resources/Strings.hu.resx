@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from one translation table; keep the keys of all languages in sync. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="UnsupportedOs" xml:space="preserve">
+    <value>Ez az operációs rendszer nem támogatott.</value>
+  </data>
+  <data name="OsNotSupportedNamed" xml:space="preserve">
+    <value>Ez az operációs rendszer ({0}) nem támogatott.</value>
+  </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>nem támogatott</value>
+  </data>
+  <data name="TokenHostEmpty" xml:space="preserve">
+    <value>A host és a token nem lehet üres.</value>
+  </data>
+  <data name="PackageUnreadable" xml:space="preserve">
+    <value>A csomag nem olvasható: {0}
+{1}</value>
+  </data>
+  <data name="FormatNotInstallableOnLinux" xml:space="preserve">
+    <value>Linuxon nem telepíthető formátum: {0}</value>
+  </data>
+  <data name="UnsupportedPackageManager" xml:space="preserve">
+    <value>Nem támogatott csomagkezelő: {0}</value>
+  </data>
+  <data name="InstallDenied" xml:space="preserve">
+    <value>A telepítés megszakítva: a jogosultság-kérés el lett utasítva.</value>
+  </data>
+  <data name="UninstallDenied" xml:space="preserve">
+    <value>Az eltávolítás megszakítva: a jogosultság-kérés el lett utasítva.</value>
+  </data>
+  <data name="InstallNotAuthorized" xml:space="preserve">
+    <value>A telepítés sikertelen: nincs jogosultság.</value>
+  </data>
+  <data name="UninstallNotAuthorized" xml:space="preserve">
+    <value>Az eltávolítás sikertelen: nincs jogosultság.</value>
+  </data>
+  <data name="InstallFailed" xml:space="preserve">
+    <value>A telepítés sikertelen (kilépési kód: {0}).
+{1}</value>
+  </data>
+  <data name="UninstallFailed" xml:space="preserve">
+    <value>Az eltávolítás sikertelen (kilépési kód: {0}).
+{1}</value>
+  </data>
+  <data name="InstallCancelled" xml:space="preserve">
+    <value>A telepítés megszakítva.</value>
+  </data>
+  <data name="UninstallCancelled" xml:space="preserve">
+    <value>Az eltávolítás megszakítva.</value>
+  </data>
+  <data name="MsiexecFailed" xml:space="preserve">
+    <value>Az msiexec hibával állt le (kód: {0}).</value>
+  </data>
+  <data name="InstallerFailed" xml:space="preserve">
+    <value>A telepítő hibával állt le (kód: {0}).</value>
+  </data>
+  <data name="UninstallerFailed" xml:space="preserve">
+    <value>Az eltávolítás hibával állt le (kód: {0}).</value>
+  </data>
+  <data name="InstalledButNotFound" xml:space="preserve">
+    <value>A telepítés lefutott, de a program nem található a telepített programok között.</value>
+  </data>
+  <data name="NoUninstallCommand" xml:space="preserve">
+    <value>Nem található eltávolító parancs.</value>
+  </data>
+  <data name="CannotStart" xml:space="preserve">
+    <value>Nem indítható: {0}</value>
+  </data>
+  <data name="CannotStartReason" xml:space="preserve">
+    <value>Nem indítható: {0} ({1})</value>
+  </data>
+  <data name="ElevationDenied" xml:space="preserve">
+    <value>A művelet megszakítva: a rendszergazdai jogosultság el lett utasítva.</value>
+  </data>
+  <data name="AppNotFound" xml:space="preserve">
+    <value>Az alkalmazás nem található.</value>
+  </data>
+  <data name="RepoAlreadyExists" xml:space="preserve">
+    <value>A(z) {0} már szerepel a store-ban.</value>
+  </data>
+  <data name="RepoHasNoReleases" xml:space="preserve">
+    <value>A(z) {0} repóban nincs kiadás (release), ezért nem került be a store-ba.</value>
+  </data>
+  <data name="RepoHasNoMatchingPackage" xml:space="preserve">
+    <value>A(z) {0} kiadásai között nincs {1} csomag ({2}), ezért nem került be a store-ba.</value>
+  </data>
+  <data name="AppAdded" xml:space="preserve">
+    <value>{0} hozzáadva ({1}).</value>
+  </data>
+  <data name="NoInstallablePackage" xml:space="preserve">
+    <value>Nincs telepíthető csomag ehhez a rendszerhez.</value>
+  </data>
+  <data name="InvalidRepoUrl" xml:space="preserve">
+    <value>Érvénytelen repó URL. Példa: https://github.com/tulajdonos/repo</value>
+  </data>
+  <data name="HostUnreachable" xml:space="preserve">
+    <value>A(z) {0} nem érhető el: {1}</value>
+  </data>
+  <data name="HostTimeout" xml:space="preserve">
+    <value>A(z) {0} nem válaszolt időben.</value>
+  </data>
+  <data name="EmptyResponse" xml:space="preserve">
+    <value>Üres válasz.</value>
+  </data>
+  <data name="InvalidResponse" xml:space="preserve">
+    <value>Érvénytelen válasz: {0}</value>
+  </data>
+  <data name="RepoNotFound" xml:space="preserve">
+    <value>A repó nem található: {0}</value>
+  </data>
+  <data name="AuthRequired" xml:space="preserve">
+    <value>Hitelesítés szükséges ({0}): adj meg tokent a beállításokban.</value>
+  </data>
+  <data name="RateLimited" xml:space="preserve">
+    <value>A(z) {0} elutasította a kérést (rate limit?). Egy token a beállításokban segíthet.</value>
+  </data>
+  <data name="HostError" xml:space="preserve">
+    <value>{0} hiba: {1} {2}</value>
+  </data>
+</root>

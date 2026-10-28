@@ -1,3 +1,4 @@
+using Bolt.App.Resources;
 using Bolt.App.Services;
 using Bolt.Core.Model;
 using Bolt.Core.Services;
@@ -20,6 +21,8 @@ public sealed partial class StoreViewModel(StoreService store, IDialogService di
 
     public bool IsPlatformSupported => store.Platform.IsSupported;
 
+    public string UnsupportedText => string.Format(Strings.UnsupportedSystem, PlatformText);
+
     [ObservableProperty]
     private string _searchText = "";
 
@@ -35,10 +38,12 @@ public sealed partial class StoreViewModel(StoreService store, IDialogService di
     private bool _isStatusError;
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(HasUpdates))]
+    [NotifyPropertyChangedFor(nameof(HasUpdates), nameof(UpdateAllText))]
     private int _updateCount;
 
     public bool HasUpdates => UpdateCount > 0;
+
+    public string UpdateAllText => string.Format(Strings.UpdateAll, UpdateCount);
 
     public bool HasStatus => !string.IsNullOrEmpty(StatusMessage);
 
@@ -55,7 +60,7 @@ public sealed partial class StoreViewModel(StoreService store, IDialogService di
         }
         catch (Exception ex) when (ex is IOException or InvalidOperationException)
         {
-            ShowStatus($"A telepített állapot nem ellenőrizhető: {ex.Message}", true);
+            ShowStatus(string.Format(Strings.InstalledStateCheckFailed, ex.Message), true);
         }
         finally
         {
@@ -105,12 +110,12 @@ public sealed partial class StoreViewModel(StoreService store, IDialogService di
 
             var errors = results.Where(r => r.Error is not null).ToList();
             var updates = results.Count(r => r.UpdateAvailable);
-            var text = results.Count == 0 ? "Nincs telepített alkalmazás."
-                : updates == 0 ? "Minden telepített alkalmazás naprakész."
-                : $"{updates} alkalmazáshoz érhető el frissítés.";
+            var text = results.Count == 0 ? Strings.NoInstalledApps
+                : updates == 0 ? Strings.AllUpToDate
+                : string.Format(Strings.UpdatesAvailableCount, updates);
             if (errors.Count > 0)
-                text += $" {errors.Count} repó nem volt elérhető: " +
-                        string.Join("; ", errors.Select(e => $"{e.App.Name}: {e.Error}"));
+                text += " " + string.Format(Strings.ReposUnreachable, errors.Count,
+                                            string.Join("; ", errors.Select(e => $"{e.App.Name}: {e.Error}")));
             ShowStatus(text, errors.Count > 0);
         }
         finally
@@ -131,6 +136,18 @@ public sealed partial class StoreViewModel(StoreService store, IDialogService di
 
     [RelayCommand]
     private void DismissStatus() => StatusMessage = null;
+
+    /// <summary>Rebuilds the texts made in code after the UI language changed.</summary>
+    public void RefreshTexts()
+    {
+        OnPropertyChanged(nameof(PlatformText));
+        OnPropertyChanged(nameof(UnsupportedText));
+        OnPropertyChanged(nameof(UpdateAllText));
+        Installed.RefreshTexts();
+        Available.RefreshTexts();
+        foreach (var item in _items)
+            item.RefreshTexts();
+    }
 
     private async Task LoadAsync()
     {

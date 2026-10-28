@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from one translation table; keep the keys of all languages in sync. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Loja de software para releases do GitHub, GitLab e Codeberg, com o instalador do próprio sistema.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pesquisar…</value>
+  </data>
+  <data name="Store" xml:space="preserve">
+    <value>Loja</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="AddRepository" xml:space="preserve">
+    <value>Adicionar repositório</value>
+  </data>
+  <data name="AddRepositoryHint" xml:space="preserve">
+    <value>Endereço de um repositório do GitHub, GitLab (gitlab.com ou auto-alojado) ou Codeberg. A loja só o adiciona se as releases incluírem um pacote para o seu sistema.</value>
+  </data>
+  <data name="RepoUrlPlaceholder" xml:space="preserve">
+    <value>https://github.com/owner/repo</value>
+  </data>
+  <data name="CheckingReleases" xml:space="preserve">
+    <value>A verificar releases…</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>Plataforma</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Dados</value>
+  </data>
+  <data name="ApiTokens" xml:space="preserve">
+    <value>Tokens de API</value>
+  </data>
+  <data name="ApiTokensHint" xml:space="preserve">
+    <value>É possível definir um token por host (ex.: github.com, gitlab.com, codeberg.org ou o seu próprio GitLab). Ele aumenta o limite da API e é necessário para repositórios privados. O token é armazenado sem criptografia na base de dados, pelo que basta acesso só de leitura (GitHub: fine-grained, Contents + Metadata read; GitLab: read_api).</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="HostPlaceholder" xml:space="preserve">
+    <value>Host (ex.: github.com)</value>
+  </data>
+  <data name="Token" xml:space="preserve">
+    <value>Token</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="TokenSaved" xml:space="preserve">
+    <value>Token guardado: {0}</value>
+  </data>
+  <data name="MetadataHeader" xml:space="preserve">
+    <value>Metadados da loja (.bolt)</value>
+  </data>
+  <data name="MetadataHint" xml:space="preserve">
+    <value>Um repositório pode definir no ficheiro .bolt/bolt.json o que a loja mostra sobre ele. O caminho do ícone é relativo à pasta .bolt (png, jpg, webp, ico, bmp). Se definir um ícone próprio para uma aplicação, a loja deixa de ler a pasta .bolt dele.</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>Aparência</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>Mais</value>
+  </data>
+  <data name="SetIcon" xml:space="preserve">
+    <value>Definir ícone…</value>
+  </data>
+  <data name="ResetIcon" xml:space="preserve">
+    <value>Repor ícone (.bolt)</value>
+  </data>
+  <data name="OpenRepository" xml:space="preserve">
+    <value>Abrir repositório</value>
+  </data>
+  <data name="RemoveFromStore" xml:space="preserve">
+    <value>Remover da loja</value>
+  </data>
+  <data name="RemoveFromStoreConfirm" xml:space="preserve">
+    <value>{0} será removido da loja. O repositório pode ser adicionado novamente mais tarde.</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remover</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Atualização disponível</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Verificar atualizações</value>
+  </data>
+  <data name="CheckingForUpdates" xml:space="preserve">
+    <value>A verificar atualizações…</value>
+  </data>
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>Nova versão disponível: {0}</value>
+  </data>
+  <data name="NoNewerVersion" xml:space="preserve">
+    <value>Nenhuma versão mais recente.</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Instalar</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Atualizar</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>Desinstalar</value>
+  </data>
+  <data name="UninstallConfirm" xml:space="preserve">
+    <value>Tem a certeza de que pretende desinstalar {0}?</value>
+  </data>
+  <data name="Downloading" xml:space="preserve">
+    <value>A transferir…</value>
+  </data>
+  <data name="Installing" xml:space="preserve">
+    <value>A instalar (uma palavra-passe pode ser solicitada)…</value>
+  </data>
+  <data name="Uninstalling" xml:space="preserve">
+    <value>A desinstalar…</value>
+  </data>
+  <data name="Installed" xml:space="preserve">
+    <value>{0} instalado.</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>{0} atualizado.</value>
+  </data>
+  <data name="Uninstalled" xml:space="preserve">
+    <value>{0} desinstalado.</value>
+  </data>
+  <data name="SavingIcon" xml:space="preserve">
+    <value>A guardar ícone…</value>
+  </data>
+  <data name="ResettingIcon" xml:space="preserve">
+    <value>A repor o ícone…</value>
+  </data>
+  <data name="VersionInstalledUpdate" xml:space="preserve">
+    <value>Instalado: {0} → disponível: {1}</value>
+  </data>
+  <data name="VersionInstalled" xml:space="preserve">
+    <value>Instalado: {0}</value>
+  </data>
+  <data name="VersionLatest" xml:space="preserve">
+    <value>Mais recente: {0}</value>
+  </data>
+  <data name="ReloadInstalledState" xml:space="preserve">
+    <value>Recarregar o estado de instalação</value>
+  </data>
+  <data name="UpdateAll" xml:space="preserve">
+    <value>Atualizar tudo ({0})</value>
+  </data>
+  <data name="UnsupportedSystem" xml:space="preserve">
+    <value>Este sistema não é suportado ({0}): só é possível instalar no Debian/Ubuntu (deb), Fedora/openSUSE (rpm) e Windows (msi/exe).</value>
+  </data>
+  <data name="EmptyStoreTitle" xml:space="preserve">
+    <value>A loja está vazia</value>
+  </data>
+  <data name="EmptyStoreHint" xml:space="preserve">
+    <value>Adicione um repositório do GitHub, GitLab ou Codeberg cujas releases incluam um pacote para o seu sistema.</value>
+  </data>
+  <data name="InstalledGroup" xml:space="preserve">
+    <value>Instaladas</value>
+  </data>
+  <data name="AvailableGroup" xml:space="preserve">
+    <value>Disponíveis</value>
+  </data>
+  <data name="NoInstalledApps" xml:space="preserve">
+    <value>Nenhuma aplicação instalada.</value>
+  </data>
+  <data name="AllInstalled" xml:space="preserve">
+    <value>Todas as aplicações estão instaladas.</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>Página anterior</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Página seguinte</value>
+  </data>
+  <data name="PageText" xml:space="preserve">
+    <value>Página {0} / {1}</value>
+  </data>
+  <data name="InstalledStateCheckFailed" xml:space="preserve">
+    <value>Não foi possível verificar o estado de instalação: {0}</value>
+  </data>
+  <data name="AllUpToDate" xml:space="preserve">
+    <value>Todas as aplicações instaladas estão atualizadas.</value>
+  </data>
+  <data name="UpdatesAvailableCount" xml:space="preserve">
+    <value>Atualizações disponíveis para {0} aplicação(ões).</value>
+  </data>
+  <data name="ReposUnreachable" xml:space="preserve">
+    <value>Repositórios inacessíveis ({0}): {1}</value>
+  </data>
+  <data name="ChooseIcon" xml:space="preserve">
+    <value>Escolher um ícone</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>Imagens</value>
+  </data>
+</root>

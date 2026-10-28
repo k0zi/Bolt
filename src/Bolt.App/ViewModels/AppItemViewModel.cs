@@ -1,4 +1,5 @@
 using Avalonia.Media.Imaging;
+using Bolt.App.Resources;
 using Bolt.App.Services;
 using Bolt.Core.Forges;
 using Bolt.Core.Model;
@@ -82,9 +83,9 @@ public sealed partial class AppItemViewModel : ObservableObject
 
     public string VersionText => App.Installation is { } installation
         ? UpdateAvailable
-            ? $"Telepítve: {installation.InstalledVersion} → elérhető: {App.LatestVersion}"
-            : $"Telepítve: {installation.InstalledVersion}"
-        : $"Legújabb: {App.LatestVersion ?? "–"}";
+            ? string.Format(Strings.VersionInstalledUpdate, installation.InstalledVersion, App.LatestVersion)
+            : string.Format(Strings.VersionInstalled, installation.InstalledVersion)
+        : string.Format(Strings.VersionLatest, App.LatestVersion ?? "–");
 
     /// <summary>Text matched by the search box.</summary>
     public bool Matches(string filter) =>
@@ -93,38 +94,40 @@ public sealed partial class AppItemViewModel : ObservableObject
         App.RepoUrl.Contains(filter, StringComparison.OrdinalIgnoreCase);
 
     [RelayCommand(CanExecute = nameof(CanInstall))]
-    private Task InstallAsync() => RunInstallAsync("Telepítés", $"{Name} telepítve.");
+    private Task InstallAsync() => RunInstallAsync(string.Format(Strings.Installed, Name));
 
     private bool CanInstall() => !IsBusy && !IsInstalled;
 
     [RelayCommand(CanExecute = nameof(CanUpdate))]
-    private Task UpdateAsync() => RunInstallAsync("Frissítés", $"{Name} frissítve.");
+    private Task UpdateAsync() => RunInstallAsync(string.Format(Strings.Updated, Name));
 
     private bool CanUpdate() => !IsBusy && UpdateAvailable;
 
     [RelayCommand(CanExecute = nameof(CanUseInstalled))]
     private async Task UninstallAsync()
     {
-        if (!await _dialogs.ConfirmAsync("Eltávolítás", $"Biztosan eltávolítod: {Name}?", "Eltávolítás"))
+        if (!await _dialogs.ConfirmAsync(Strings.Uninstall, string.Format(Strings.UninstallConfirm, Name), Strings.Uninstall))
             return;
-        await RunAsync("Eltávolítás…", async () =>
+        await RunAsync(Strings.Uninstalling, async () =>
         {
             App = await _store.UninstallAsync(Id);
-            return $"{Name} eltávolítva.";
+            return string.Format(Strings.Uninstalled, Name);
         });
     }
 
     private bool CanUseInstalled() => !IsBusy && IsInstalled;
 
     [RelayCommand(CanExecute = nameof(CanUseInstalled))]
-    private Task CheckForUpdateAsync() => RunAsync("Frissítések keresése…", async () =>
+    private Task CheckForUpdateAsync() => RunAsync(Strings.CheckingForUpdates, async () =>
     {
         var result = await _store.CheckForUpdateAsync(Id);
         App = result.App;
         Icon = LoadIcon(App.IconPath);
         if (result.Error is not null)
             throw new ForgeException(result.Error);
-        return result.UpdateAvailable ? $"Új verzió érhető el: {App.LatestVersion}" : "Nincs újabb verzió.";
+        return result.UpdateAvailable
+            ? string.Format(Strings.NewVersionAvailable, App.LatestVersion)
+            : Strings.NoNewerVersion;
     });
 
     [RelayCommand(CanExecute = nameof(CanEdit))]
@@ -133,7 +136,7 @@ public sealed partial class AppItemViewModel : ObservableObject
         var file = await _dialogs.PickImageAsync();
         if (file is null)
             return;
-        await RunAsync("Ikon mentése…", async () =>
+        await RunAsync(Strings.SavingIcon, async () =>
         {
             await _store.SetCustomIconAsync(Id, file);
             await ReloadAsync();
@@ -144,7 +147,7 @@ public sealed partial class AppItemViewModel : ObservableObject
     private bool CanEdit() => !IsBusy;
 
     [RelayCommand(CanExecute = nameof(CanResetIcon))]
-    private Task ResetIconAsync() => RunAsync("Ikon visszaállítása…", async () =>
+    private Task ResetIconAsync() => RunAsync(Strings.ResettingIcon, async () =>
     {
         await _store.ResetIconAsync(Id);
         await ReloadAsync();
@@ -156,9 +159,8 @@ public sealed partial class AppItemViewModel : ObservableObject
     [RelayCommand(CanExecute = nameof(CanRemove))]
     private async Task RemoveAsync()
     {
-        if (!await _dialogs.ConfirmAsync("Eltávolítás a store-ból",
-                                         $"{Name} törlődik a store-ból. A repó később újra hozzáadható.",
-                                         "Törlés"))
+        if (!await _dialogs.ConfirmAsync(Strings.RemoveFromStore, string.Format(Strings.RemoveFromStoreConfirm, Name),
+                                         Strings.Remove))
             return;
         await _store.RemoveAppAsync(Id);
         _removed(this);
@@ -176,21 +178,24 @@ public sealed partial class AppItemViewModel : ObservableObject
         Icon = LoadIcon(app.IconPath);
     }
 
+    /// <summary>Rebuilds the texts made in code after the UI language changed.</summary>
+    public void RefreshTexts() => OnPropertyChanged(nameof(VersionText));
+
     private async Task ReloadAsync()
     {
         App = await _store.GetAppAsync(Id);
         Icon = LoadIcon(App.IconPath);
     }
 
-    private Task RunInstallAsync(string what, string done) => RunAsync($"{what}: letöltés…", async () =>
+    private Task RunInstallAsync(string done) => RunAsync(Strings.Downloading, async () =>
     {
         var progress = new Progress<OperationProgress>(p =>
         {
             BusyText = p.Stage switch
             {
-                OperationStage.Downloading => $"{what}: letöltés…",
-                OperationStage.Installing => $"{what}: telepítés (jelszó kérhető)…",
-                _ => "Eltávolítás…",
+                OperationStage.Downloading => Strings.Downloading,
+                OperationStage.Installing => Strings.Installing,
+                _ => Strings.Uninstalling,
             };
             IsProgressIndeterminate = p.Fraction is null;
             Progress = (p.Fraction ?? 0) * 100;

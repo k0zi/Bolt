@@ -27,6 +27,8 @@ repositories, Bolt picks the package matching your system from their releases, a
 - **State**: on startup Bolt checks whether installed packages are still present (removed externally → the app goes
   back to the installable list).
 - **API tokens**: optional per-host token (rate limits, private repositories) in the settings.
+- **Language**: the UI is available in English (default), German, French, Spanish, Portuguese, Chinese, Japanese
+  and Hungarian; switch it in the settings, it applies immediately.
 - **Data**: SQLite, `~/.local/share/bolt/bolt.db` (Windows: `%LOCALAPPDATA%\bolt\bolt.db`), icons next to it in the
   `icons` folder.
 
@@ -47,7 +49,7 @@ A repository can describe how it should appear in the store in `.bolt/bolt.json`
 - `icon` is a path relative to the `.bolt` folder (png, jpg, webp, ico, bmp) and must not point outside it.
 - The store re-reads the file when the repository is added and on every update check.
 - If the user sets a custom icon for an app, it is stored locally and the store stops reading the `.bolt` folder
-  from then on (switch back with the *Ikon visszaállítása* / *Reset icon* menu item).
+  from then on (switch back with the *Reset icon (.bolt)* menu item).
 
 ## Development
 
@@ -59,6 +61,7 @@ dotnet run --project src/Bolt.App
 
 - `src/Bolt.Core` – data model (EF Core + SQLite), forge clients, package selection, installers, `StoreService`.
 - `src/Bolt.App` – Avalonia UI (MVVM, CommunityToolkit.Mvvm).
+- `src/Bolt.*/Resources/Strings*.resx` – UI and message texts, one file per language (`Strings.resx` is English).
 - `tests/Bolt.Core.Tests` – xUnit tests.
 
 New migration: `dotnet ef migrations add <Name> --project src/Bolt.Core --output-dir Data/Migrations`.

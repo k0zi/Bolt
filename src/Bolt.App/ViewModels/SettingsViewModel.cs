@@ -1,4 +1,6 @@
 using System.Collections.ObjectModel;
+using Bolt.App.Localization;
+using Bolt.App.Resources;
 using Bolt.Core;
 using Bolt.Core.Model;
 using Bolt.Core.Platform;
@@ -16,6 +18,18 @@ public sealed partial class SettingsViewModel(CredentialService credentials, Pla
     public bool IsPlatformSupported => platform.IsSupported;
 
     public string DataDirectory => paths.DataDirectory;
+
+    public IReadOnlyList<Language> Languages => Localizer.Languages;
+
+    public Language SelectedLanguage
+    {
+        get => Localizer.Instance.Language;
+        set
+        {
+            if (value is not null)
+                Localizer.Instance.SetLanguage(value);
+        }
+    }
 
     public ObservableCollection<TokenItem> Tokens { get; } = [];
 
@@ -41,13 +55,16 @@ public sealed partial class SettingsViewModel(CredentialService credentials, Pla
             Tokens.Add(new TokenItem(credential, RemoveTokenCommand));
     }
 
+    /// <summary>Rebuilds the texts made in code after the UI language changed.</summary>
+    public void RefreshTexts() => OnPropertyChanged(nameof(PlatformText));
+
     [RelayCommand(CanExecute = nameof(CanSave))]
     private async Task SaveTokenAsync()
     {
         try
         {
             await credentials.SetAsync(NewHost, NewToken);
-            Message = $"Token mentve: {CredentialService.NormalizeHost(NewHost)}";
+            Message = string.Format(Strings.TokenSaved, CredentialService.NormalizeHost(NewHost));
             NewHost = "";
             NewToken = "";
             await LoadAsync();

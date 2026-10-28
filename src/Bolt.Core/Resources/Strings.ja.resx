@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from one translation table; keep the keys of all languages in sync. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="UnsupportedOs" xml:space="preserve">
+    <value>このオペレーティングシステムはサポートされていません。</value>
+  </data>
+  <data name="OsNotSupportedNamed" xml:space="preserve">
+    <value>このオペレーティングシステム ({0}) はサポートされていません。</value>
+  </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>サポート対象外</value>
+  </data>
+  <data name="TokenHostEmpty" xml:space="preserve">
+    <value>ホストとトークンは空にできません。</value>
+  </data>
+  <data name="PackageUnreadable" xml:space="preserve">
+    <value>パッケージを読み取れません: {0}
+{1}</value>
+  </data>
+  <data name="FormatNotInstallableOnLinux" xml:space="preserve">
+    <value>この形式は Linux にインストールできません: {0}</value>
+  </data>
+  <data name="UnsupportedPackageManager" xml:space="preserve">
+    <value>サポートされていないパッケージマネージャー: {0}</value>
+  </data>
+  <data name="InstallDenied" xml:space="preserve">
+    <value>インストールがキャンセルされました: 認証要求が拒否されました。</value>
+  </data>
+  <data name="UninstallDenied" xml:space="preserve">
+    <value>アンインストールがキャンセルされました: 認証要求が拒否されました。</value>
+  </data>
+  <data name="InstallNotAuthorized" xml:space="preserve">
+    <value>インストールに失敗しました: 権限がありません。</value>
+  </data>
+  <data name="UninstallNotAuthorized" xml:space="preserve">
+    <value>アンインストールに失敗しました: 権限がありません。</value>
+  </data>
+  <data name="InstallFailed" xml:space="preserve">
+    <value>インストールに失敗しました (終了コード: {0})。
+{1}</value>
+  </data>
+  <data name="UninstallFailed" xml:space="preserve">
+    <value>アンインストールに失敗しました (終了コード: {0})。
+{1}</value>
+  </data>
+  <data name="InstallCancelled" xml:space="preserve">
+    <value>インストールがキャンセルされました。</value>
+  </data>
+  <data name="UninstallCancelled" xml:space="preserve">
+    <value>アンインストールがキャンセルされました。</value>
+  </data>
+  <data name="MsiexecFailed" xml:space="preserve">
+    <value>msiexec がエラーで終了しました (コード: {0})。</value>
+  </data>
+  <data name="InstallerFailed" xml:space="preserve">
+    <value>インストーラーがエラーで終了しました (コード: {0})。</value>
+  </data>
+  <data name="UninstallerFailed" xml:space="preserve">
+    <value>アンインストールがエラーで終了しました (コード: {0})。</value>
+  </data>
+  <data name="InstalledButNotFound" xml:space="preserve">
+    <value>インストールは完了しましたが、インストール済みプログラムの中にプログラムが見つかりません。</value>
+  </data>
+  <data name="NoUninstallCommand" xml:space="preserve">
+    <value>アンインストールコマンドが見つかりません。</value>
+  </data>
+  <data name="CannotStart" xml:space="preserve">
+    <value>起動できません: {0}</value>
+  </data>
+  <data name="CannotStartReason" xml:space="preserve">
+    <value>起動できません: {0} ({1})</value>
+  </data>
+  <data name="ElevationDenied" xml:space="preserve">
+    <value>操作がキャンセルされました: 管理者権限が拒否されました。</value>
+  </data>
+  <data name="AppNotFound" xml:space="preserve">
+    <value>アプリケーションが見つかりません。</value>
+  </data>
+  <data name="RepoAlreadyExists" xml:space="preserve">
+    <value>{0} はすでにストアにあります。</value>
+  </data>
+  <data name="RepoHasNoReleases" xml:space="preserve">
+    <value>{0} にはリリースがないため、ストアに追加されませんでした。</value>
+  </data>
+  <data name="RepoHasNoMatchingPackage" xml:space="preserve">
+    <value>{0} のリリースには {1} パッケージ ({2}) がないため、ストアに追加されませんでした。</value>
+  </data>
+  <data name="AppAdded" xml:space="preserve">
+    <value>{0} を追加しました ({1})。</value>
+  </data>
+  <data name="NoInstallablePackage" xml:space="preserve">
+    <value>このシステム用のインストール可能なパッケージがありません。</value>
+  </data>
+  <data name="InvalidRepoUrl" xml:space="preserve">
+    <value>無効なリポジトリ URL です。例: https://github.com/owner/repo</value>
+  </data>
+  <data name="HostUnreachable" xml:space="preserve">
+    <value>{0} に接続できません: {1}</value>
+  </data>
+  <data name="HostTimeout" xml:space="preserve">
+    <value>{0} が時間内に応答しませんでした。</value>
+  </data>
+  <data name="EmptyResponse" xml:space="preserve">
+    <value>応答が空です。</value>
+  </data>
+  <data name="InvalidResponse" xml:space="preserve">
+    <value>無効な応答: {0}</value>
+  </data>
+  <data name="RepoNotFound" xml:space="preserve">
+    <value>リポジトリが見つかりません: {0}</value>
+  </data>
+  <data name="AuthRequired" xml:space="preserve">
+    <value>認証が必要です ({0}): 設定でトークンを追加してください。</value>
+  </data>
+  <data name="RateLimited" xml:space="preserve">
+    <value>{0} がリクエストを拒否しました (レート制限?)。設定でトークンを追加すると解決する場合があります。</value>
+  </data>
+  <data name="HostError" xml:space="preserve">
+    <value>{0} エラー: {1} {2}</value>
+  </data>
+</root>

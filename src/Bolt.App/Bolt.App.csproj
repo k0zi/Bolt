@@ -27,4 +27,14 @@
     <ProjectReference Include="..\Bolt.Core\Bolt.Core.csproj" />
   </ItemGroup>
 
+  <!-- UI and message texts; English is the neutral language, the others are satellite assemblies. -->
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Strings.resx">
+      <StronglyTypedFileName>$(IntermediateOutputPath)Strings.Designer.cs</StronglyTypedFileName>
+      <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+      <StronglyTypedNamespace>Bolt.App.Resources</StronglyTypedNamespace>
+      <StronglyTypedClassName>Strings</StronglyTypedClassName>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

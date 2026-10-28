@@ -1,6 +1,7 @@
 using Bolt.Core.Data;
 using Bolt.Core.Forges;
 using Bolt.Core.Model;
+using Bolt.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bolt.Core.Services;
@@ -27,7 +28,7 @@ public sealed class CredentialService(IDbContextFactory<BoltDbContext> dbFactory
     {
         var key = NormalizeHost(host);
         if (key.Length == 0 || string.IsNullOrWhiteSpace(token))
-            throw new ArgumentException("A host és a token nem lehet üres.");
+            throw new ArgumentException(Strings.TokenHostEmpty);
 
         await using var db = await dbFactory.CreateDbContextAsync(ct).ConfigureAwait(false);
         var existing = await db.HostCredentials.AsTracking().FirstOrDefaultAsync(c => c.Host == key, ct)

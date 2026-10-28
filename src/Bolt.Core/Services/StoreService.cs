@@ -3,6 +3,7 @@ using Bolt.Core.Forges;
 using Bolt.Core.Metadata;
 using Bolt.Core.Model;
 using Bolt.Core.Platform;
+using Bolt.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bolt.Core.Services;
@@ -53,7 +54,7 @@ public sealed class StoreService(
         await using var db = await dbFactory.CreateDbContextAsync(ct).ConfigureAwait(false);
         return await db.Apps.Include(a => a.Installation).FirstOrDefaultAsync(a => a.Id == appId, ct)
                             .ConfigureAwait(false)
-               ?? throw new InvalidOperationException("Az alkalmazás nem található.");
+               ?? throw new InvalidOperationException(Strings.AppNotFound);
     }
 
     /// <summary>
@@ -70,7 +71,7 @@ public sealed class StoreService(
             await using (var db = await dbFactory.CreateDbContextAsync(ct).ConfigureAwait(false))
             {
                 if (await db.Apps.AnyAsync(a => a.RepoUrl == repo.Url, ct).ConfigureAwait(false))
-                    return new(AddRepositoryStatus.AlreadyExists, $"A(z) {repo.Url} már szerepel a store-ban.");
+                    return new(AddRepositoryStatus.AlreadyExists, string.Format(Strings.RepoAlreadyExists, repo.Url));
             }
             releases = await forges.GetClient(repo.Kind).GetReleasesAsync(repo, ct).ConfigureAwait(false);
         }
@@ -81,16 +82,15 @@ public sealed class StoreService(
 
         if (!releases.Any(r => !r.IsPrerelease))
             return new(AddRepositoryStatus.NoRelease,
-                       $"A(z) {repo.Url} repóban nincs kiadás (release), ezért nem került be a store-ba.");
+                       string.Format(Strings.RepoHasNoReleases, repo.Url));
 
         if (!platform.IsSupported)
             return new(AddRepositoryStatus.NoCompatibleAsset,
-                       $"Ez az operációs rendszer ({platform.OsName}) nem támogatott.");
+                       string.Format(Strings.OsNotSupportedNamed, platform.OsName));
 
         if (AssetMatcher.SelectLatest(releases, platform) is not ({ } release, { } asset))
             return new(AddRepositoryStatus.NoCompatibleAsset,
-                       $"A(z) {repo.Url} kiadásai között nincs {FormatList()} csomag ({platform.Architecture}), " +
-                       "ezért nem került be a store-ba.");
+                       string.Format(Strings.RepoHasNoMatchingPackage, repo.Url, FormatList(), platform.Architecture));
 
         var app = new StoreApp
         {
@@ -119,7 +119,7 @@ public sealed class StoreService(
             // .bolt is optional: it is read again with the next update check
         }
         app = await GetAppAsync(app.Id, ct).ConfigureAwait(false);
-        return new(AddRepositoryStatus.Added, $"{app.Name} hozzáadva ({app.LatestVersion}).", app);
+        return new(AddRepositoryStatus.Added, string.Format(Strings.AppAdded, app.Name, app.LatestVersion), app);
     }
 
     /// <summary>Removes the application from the store (the installed program stays).</summary>
@@ -145,7 +145,7 @@ public sealed class StoreService(
 
         var releases = await client.GetReleasesAsync(repo, ct).ConfigureAwait(false);
         if (AssetMatcher.SelectLatest(releases, platform) is not ({ } release, { } asset))
-            throw new InstallerException("Nincs telepíthető csomag ehhez a rendszerhez.");
+            throw new InstallerException(Strings.NoInstallablePackage);
         var format = AssetMatcher.FormatOf(asset.Name)!.Value;
 
         progress?.Report(new(OperationStage.Downloading, 0));

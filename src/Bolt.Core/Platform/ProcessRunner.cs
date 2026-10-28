@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Text;
+using Bolt.Core.Resources;
 
 namespace Bolt.Core.Platform;
 
@@ -53,7 +54,7 @@ public sealed class ProcessRunner : IProcessRunner
         }
         catch (Exception ex) when (ex is System.ComponentModel.Win32Exception or InvalidOperationException)
         {
-            throw new InstallerException($"Nem indítható: {fileName} ({ex.Message})", ex);
+            throw new InstallerException(string.Format(Strings.CannotStartReason, fileName, ex.Message), ex);
         }
 
         process.BeginOutputReadLine();

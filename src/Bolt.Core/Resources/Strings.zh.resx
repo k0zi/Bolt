@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from one translation table; keep the keys of all languages in sync. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="UnsupportedOs" xml:space="preserve">
+    <value>不支持此操作系统。</value>
+  </data>
+  <data name="OsNotSupportedNamed" xml:space="preserve">
+    <value>不支持此操作系统（{0}）。</value>
+  </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>不支持</value>
+  </data>
+  <data name="TokenHostEmpty" xml:space="preserve">
+    <value>主机和令牌不能为空。</value>
+  </data>
+  <data name="PackageUnreadable" xml:space="preserve">
+    <value>无法读取软件包：{0}
+{1}</value>
+  </data>
+  <data name="FormatNotInstallableOnLinux" xml:space="preserve">
+    <value>此格式无法在 Linux 上安装：{0}</value>
+  </data>
+  <data name="UnsupportedPackageManager" xml:space="preserve">
+    <value>不支持的包管理器：{0}</value>
+  </data>
+  <data name="InstallDenied" xml:space="preserve">
+    <value>安装已取消：授权请求被拒绝。</value>
+  </data>
+  <data name="UninstallDenied" xml:space="preserve">
+    <value>卸载已取消：授权请求被拒绝。</value>
+  </data>
+  <data name="InstallNotAuthorized" xml:space="preserve">
+    <value>安装失败：没有权限。</value>
+  </data>
+  <data name="UninstallNotAuthorized" xml:space="preserve">
+    <value>卸载失败：没有权限。</value>
+  </data>
+  <data name="InstallFailed" xml:space="preserve">
+    <value>安装失败（退出代码：{0}）。
+{1}</value>
+  </data>
+  <data name="UninstallFailed" xml:space="preserve">
+    <value>卸载失败（退出代码：{0}）。
+{1}</value>
+  </data>
+  <data name="InstallCancelled" xml:space="preserve">
+    <value>安装已取消。</value>
+  </data>
+  <data name="UninstallCancelled" xml:space="preserve">
+    <value>卸载已取消。</value>
+  </data>
+  <data name="MsiexecFailed" xml:space="preserve">
+    <value>msiexec 出错退出（代码：{0}）。</value>
+  </data>
+  <data name="InstallerFailed" xml:space="preserve">
+    <value>安装程序出错退出（代码：{0}）。</value>
+  </data>
+  <data name="UninstallerFailed" xml:space="preserve">
+    <value>卸载程序出错退出（代码：{0}）。</value>
+  </data>
+  <data name="InstalledButNotFound" xml:space="preserve">
+    <value>安装已完成，但在已安装的程序中找不到该程序。</value>
+  </data>
+  <data name="NoUninstallCommand" xml:space="preserve">
+    <value>找不到卸载命令。</value>
+  </data>
+  <data name="CannotStart" xml:space="preserve">
+    <value>无法启动：{0}</value>
+  </data>
+  <data name="CannotStartReason" xml:space="preserve">
+    <value>无法启动：{0}（{1}）</value>
+  </data>
+  <data name="ElevationDenied" xml:space="preserve">
+    <value>操作已取消：管理员权限被拒绝。</value>
+  </data>
+  <data name="AppNotFound" xml:space="preserve">
+    <value>找不到该应用程序。</value>
+  </data>
+  <data name="RepoAlreadyExists" xml:space="preserve">
+    <value>{0} 已在商店中。</value>
+  </data>
+  <data name="RepoHasNoReleases" xml:space="preserve">
+    <value>{0} 没有发布版本（release），因此未添加到商店。</value>
+  </data>
+  <data name="RepoHasNoMatchingPackage" xml:space="preserve">
+    <value>{0} 的发布版本中没有 {1} 软件包（{2}），因此未添加到商店。</value>
+  </data>
+  <data name="AppAdded" xml:space="preserve">
+    <value>已添加 {0}（{1}）。</value>
+  </data>
+  <data name="NoInstallablePackage" xml:space="preserve">
+    <value>没有适用于此系统的可安装软件包。</value>
+  </data>
+  <data name="InvalidRepoUrl" xml:space="preserve">
+    <value>无效的仓库 URL。示例：https://github.com/owner/repo</value>
+  </data>
+  <data name="HostUnreachable" xml:space="preserve">
+    <value>无法访问 {0}：{1}</value>
+  </data>
+  <data name="HostTimeout" xml:space="preserve">
+    <value>{0} 未及时响应。</value>
+  </data>
+  <data name="EmptyResponse" xml:space="preserve">
+    <value>响应为空。</value>
+  </data>
+  <data name="InvalidResponse" xml:space="preserve">
+    <value>无效的响应：{0}</value>
+  </data>
+  <data name="RepoNotFound" xml:space="preserve">
+    <value>找不到仓库：{0}</value>
+  </data>
+  <data name="AuthRequired" xml:space="preserve">
+    <value>需要身份验证（{0}）：请在设置中添加令牌。</value>
+  </data>
+  <data name="RateLimited" xml:space="preserve">
+    <value>{0} 拒绝了请求（速率限制？）。在设置中添加令牌可能会有帮助。</value>
+  </data>
+  <data name="HostError" xml:space="preserve">
+    <value>{0} 错误：{1} {2}</value>
+  </data>
+</root>

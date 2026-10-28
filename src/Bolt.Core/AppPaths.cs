@@ -16,6 +16,9 @@ public sealed class AppPaths
 
     public string DatabasePath => Path.Combine(DataDirectory, "bolt.db");
 
+    /// <summary>Preferences of the user interface (e.g. the language).</summary>
+    public string SettingsPath => Path.Combine(DataDirectory, "settings.json");
+
     public string IconDirectory => Path.Combine(DataDirectory, "icons");
 
     public string DownloadDirectory => Path.Combine(Path.GetTempPath(), "bolt");

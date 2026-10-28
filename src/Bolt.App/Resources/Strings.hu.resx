@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from one translation table; keep the keys of all languages in sync. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Szoftver store GitHub, GitLab és Codeberg kiadásokból, a rendszer saját telepítőjével.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Keresés…</value>
+  </data>
+  <data name="Store" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="AddRepository" xml:space="preserve">
+    <value>Repó hozzáadása</value>
+  </data>
+  <data name="AddRepositoryHint" xml:space="preserve">
+    <value>GitHub, GitLab (gitlab.com vagy saját szerver) vagy Codeberg repó címe. A store csak akkor veszi fel, ha a kiadások (release) között van a rendszeredhez való csomag.</value>
+  </data>
+  <data name="RepoUrlPlaceholder" xml:space="preserve">
+    <value>https://github.com/tulajdonos/repo</value>
+  </data>
+  <data name="CheckingReleases" xml:space="preserve">
+    <value>Kiadások ellenőrzése…</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Bezárás</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Hozzáadás</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Mégse</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Rendszer</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>Platform</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Adatok</value>
+  </data>
+  <data name="ApiTokens" xml:space="preserve">
+    <value>API tokenek</value>
+  </data>
+  <data name="ApiTokensHint" xml:space="preserve">
+    <value>Hostonként megadható token (pl. github.com, gitlab.com, codeberg.org vagy saját GitLab). Magasabb API limitet ad, és privát repókhoz is kell. A token az adatbázisban, titkosítás nélkül tárolódik: elég csak olvasási jog (GitHub: fine-grained, Contents + Metadata read; GitLab: read_api).</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="HostPlaceholder" xml:space="preserve">
+    <value>Host (pl. github.com)</value>
+  </data>
+  <data name="Token" xml:space="preserve">
+    <value>Token</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Mentés</value>
+  </data>
+  <data name="TokenSaved" xml:space="preserve">
+    <value>Token mentve: {0}</value>
+  </data>
+  <data name="MetadataHeader" xml:space="preserve">
+    <value>Store metaadatok (.bolt)</value>
+  </data>
+  <data name="MetadataHint" xml:space="preserve">
+    <value>Egy repó a .bolt/bolt.json fájlban adhatja meg a store-ban megjelenő adatait. Az ikon útvonala a .bolt mappához képest relatív (png, jpg, webp, ico, bmp). Ha egy alkalmazáshoz saját ikont állítasz be, a store nem olvassa tovább a .bolt mappáját.</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>Megjelenés</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>Továbbiak</value>
+  </data>
+  <data name="SetIcon" xml:space="preserve">
+    <value>Ikon beállítása…</value>
+  </data>
+  <data name="ResetIcon" xml:space="preserve">
+    <value>Ikon visszaállítása (.bolt)</value>
+  </data>
+  <data name="OpenRepository" xml:space="preserve">
+    <value>Repó megnyitása</value>
+  </data>
+  <data name="RemoveFromStore" xml:space="preserve">
+    <value>Törlés a store-ból</value>
+  </data>
+  <data name="RemoveFromStoreConfirm" xml:space="preserve">
+    <value>{0} törlődik a store-ból. A repó később újra hozzáadható.</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Frissítés elérhető</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Frissítések keresése</value>
+  </data>
+  <data name="CheckingForUpdates" xml:space="preserve">
+    <value>Frissítések keresése…</value>
+  </data>
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>Új verzió érhető el: {0}</value>
+  </data>
+  <data name="NoNewerVersion" xml:space="preserve">
+    <value>Nincs újabb verzió.</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Telepítés</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>Eltávolítás</value>
+  </data>
+  <data name="UninstallConfirm" xml:space="preserve">
+    <value>Biztosan eltávolítod: {0}?</value>
+  </data>
+  <data name="Downloading" xml:space="preserve">
+    <value>Letöltés…</value>
+  </data>
+  <data name="Installing" xml:space="preserve">
+    <value>Telepítés (jelszó kérhető)…</value>
+  </data>
+  <data name="Uninstalling" xml:space="preserve">
+    <value>Eltávolítás…</value>
+  </data>
+  <data name="Installed" xml:space="preserve">
+    <value>{0} telepítve.</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>{0} frissítve.</value>
+  </data>
+  <data name="Uninstalled" xml:space="preserve">
+    <value>{0} eltávolítva.</value>
+  </data>
+  <data name="SavingIcon" xml:space="preserve">
+    <value>Ikon mentése…</value>
+  </data>
+  <data name="ResettingIcon" xml:space="preserve">
+    <value>Ikon visszaállítása…</value>
+  </data>
+  <data name="VersionInstalledUpdate" xml:space="preserve">
+    <value>Telepítve: {0} → elérhető: {1}</value>
+  </data>
+  <data name="VersionInstalled" xml:space="preserve">
+    <value>Telepítve: {0}</value>
+  </data>
+  <data name="VersionLatest" xml:space="preserve">
+    <value>Legújabb: {0}</value>
+  </data>
+  <data name="ReloadInstalledState" xml:space="preserve">
+    <value>Telepített állapot újraolvasása</value>
+  </data>
+  <data name="UpdateAll" xml:space="preserve">
+    <value>Összes frissítése ({0})</value>
+  </data>
+  <data name="UnsupportedSystem" xml:space="preserve">
+    <value>Ez a rendszer nem támogatott ({0}): telepíteni csak Debian/Ubuntu (deb), Fedora/openSUSE (rpm) és Windows (msi/exe) alatt lehet.</value>
+  </data>
+  <data name="EmptyStoreTitle" xml:space="preserve">
+    <value>Még üres a store</value>
+  </data>
+  <data name="EmptyStoreHint" xml:space="preserve">
+    <value>Adj hozzá egy GitHub, GitLab vagy Codeberg repót, amelynek a kiadásai között van a rendszeredhez való csomag.</value>
+  </data>
+  <data name="InstalledGroup" xml:space="preserve">
+    <value>Telepített</value>
+  </data>
+  <data name="AvailableGroup" xml:space="preserve">
+    <value>Telepíthető</value>
+  </data>
+  <data name="NoInstalledApps" xml:space="preserve">
+    <value>Nincs telepített alkalmazás.</value>
+  </data>
+  <data name="AllInstalled" xml:space="preserve">
+    <value>Minden alkalmazás telepítve van.</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>Előző oldal</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Következő oldal</value>
+  </data>
+  <data name="PageText" xml:space="preserve">
+    <value>{0} / {1}. oldal</value>
+  </data>
+  <data name="InstalledStateCheckFailed" xml:space="preserve">
+    <value>A telepített állapot nem ellenőrizhető: {0}</value>
+  </data>
+  <data name="AllUpToDate" xml:space="preserve">
+    <value>Minden telepített alkalmazás naprakész.</value>
+  </data>
+  <data name="UpdatesAvailableCount" xml:space="preserve">
+    <value>{0} alkalmazáshoz érhető el frissítés.</value>
+  </data>
+  <data name="ReposUnreachable" xml:space="preserve">
+    <value>{0} repó nem volt elérhető: {1}</value>
+  </data>
+  <data name="ChooseIcon" xml:space="preserve">
+    <value>Ikon kiválasztása</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>Képek</value>
+  </data>
+</root>

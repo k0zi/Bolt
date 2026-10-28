@@ -1,6 +1,7 @@
 using System.Net;
 using System.Text.Json;
 using Bolt.Core.Model;
+using Bolt.Core.Resources;
 
 namespace Bolt.Core.Forges;
 
@@ -64,11 +65,11 @@ public abstract class ForgeClientBase(HttpClient http, ITokenProvider tokens) : 
         }
         catch (HttpRequestException ex)
         {
-            throw new ForgeException($"A(z) {repo.Host} nem érhető el: {ex.Message}", ex);
+            throw new ForgeException(string.Format(Strings.HostUnreachable, repo.Host, ex.Message), ex);
         }
         catch (TaskCanceledException ex) when (!ct.IsCancellationRequested)
         {
-            throw new ForgeException($"A(z) {repo.Host} nem válaszolt időben.", ex);
+            throw new ForgeException(string.Format(Strings.HostTimeout, repo.Host), ex);
         }
     }
 
@@ -83,11 +84,11 @@ public abstract class ForgeClientBase(HttpClient http, ITokenProvider tokens) : 
     {
         try
         {
-            return JsonSerializer.Deserialize<T>(json, JsonOptions) ?? throw new ForgeException("Üres válasz.");
+            return JsonSerializer.Deserialize<T>(json, JsonOptions) ?? throw new ForgeException(Strings.EmptyResponse);
         }
         catch (JsonException ex)
         {
-            throw new ForgeException($"Érvénytelen válasz: {ex.Message}", ex);
+            throw new ForgeException(string.Format(Strings.InvalidResponse, ex.Message), ex);
         }
     }
 
@@ -107,11 +108,11 @@ public abstract class ForgeClientBase(HttpClient http, ITokenProvider tokens) : 
 
         var message = response.StatusCode switch
         {
-            HttpStatusCode.NotFound => $"A repó nem található: {repo.Url}",
-            HttpStatusCode.Unauthorized => $"Hitelesítés szükséges ({repo.Host}): adj meg tokent a beállításokban.",
+            HttpStatusCode.NotFound => string.Format(Strings.RepoNotFound, repo.Url),
+            HttpStatusCode.Unauthorized => string.Format(Strings.AuthRequired, repo.Host),
             HttpStatusCode.Forbidden or HttpStatusCode.TooManyRequests =>
-                $"A(z) {repo.Host} elutasította a kérést (rate limit?). Egy token a beállításokban segíthet.",
-            _ => $"{repo.Host} hiba: {(int)response.StatusCode} {response.ReasonPhrase}",
+                string.Format(Strings.RateLimited, repo.Host),
+            _ => string.Format(Strings.HostError, repo.Host, (int)response.StatusCode, response.ReasonPhrase),
         };
         throw new ForgeException(message);
     }

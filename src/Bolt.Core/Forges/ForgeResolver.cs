@@ -1,4 +1,5 @@
 using Bolt.Core.Model;
+using Bolt.Core.Resources;
 
 namespace Bolt.Core.Forges;
 
@@ -16,7 +17,7 @@ public sealed class ForgeResolver(HttpClient http, IEnumerable<IForgeClient> cli
     public async Task<RepoRef> ResolveAsync(string url, CancellationToken ct = default)
     {
         if (!RepoUrlParser.TryParse(url, out var parsed) || parsed is null)
-            throw new ForgeException("Érvénytelen repó URL. Példa: https://github.com/tulajdonos/repo");
+            throw new ForgeException(Strings.InvalidRepoUrl);
 
         var kind = parsed.Kind ?? await DetectAsync(parsed.BaseUrl, ct).ConfigureAwait(false)
                    ?? throw new ForgeException(

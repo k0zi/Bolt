@@ -1,15 +1,28 @@
+using Bolt.App.Localization;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Bolt.App.ViewModels;
 
-public sealed partial class MainWindowViewModel(StoreViewModel store, SettingsViewModel settings) : ObservableObject
+public sealed partial class MainWindowViewModel : ObservableObject
 {
-    public StoreViewModel Store { get; } = store;
+    public MainWindowViewModel(StoreViewModel store, SettingsViewModel settings)
+    {
+        Store = store;
+        Settings = settings;
+        _currentPage = store;
+        Localizer.Instance.LanguageChanged += (_, _) =>
+        {
+            Store.RefreshTexts();
+            Settings.RefreshTexts();
+        };
+    }
 
-    public SettingsViewModel Settings { get; } = settings;
+    public StoreViewModel Store { get; }
+
+    public SettingsViewModel Settings { get; }
 
     [ObservableProperty]
-    private ObservableObject? _currentPage = store;
+    private ObservableObject? _currentPage;
 
     public void ShowStore() => CurrentPage = Store;
 

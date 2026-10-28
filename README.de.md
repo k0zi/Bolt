@@ -1,5 +1,9 @@
 # Bolt
 
+<p align="center">
+  <img src="docs/assets/bolt-header.png" alt="Bolt — Server und fließende Daten" width="900" />
+</p>
+
 [English](README.md) | **Deutsch** | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | [中文](README.zh.md) | [日本語](README.ja.md) | [Magyar](README.hu.md)
 
 Ein Desktop-Software-Store (Avalonia 12 + [KD.Avalonia.Rice](https://www.nuget.org/packages/KD.Avalonia.Rice)).
@@ -23,6 +27,8 @@ Er hat keinen eigenen Katalog: Man fügt GitHub-, GitLab- (gitlab.com oder selbs
 - **Status**: Beim Start prüft Bolt, ob die installierten Pakete noch vorhanden sind (extern entfernt → die Anwendung
   kommt zurück in die Liste der installierbaren).
 - **API-Tokens**: optionaler Token pro Host (Rate-Limits, private Repositorys) in den Einstellungen.
+- **Sprache**: Die Oberfläche gibt es auf Englisch (Standard), Deutsch, Französisch, Spanisch, Portugiesisch,
+  Chinesisch, Japanisch und Ungarisch; umschalten in den Einstellungen, die Änderung gilt sofort.
 - **Daten**: SQLite, `~/.local/share/bolt/bolt.db` (Windows: `%LOCALAPPDATA%\bolt\bolt.db`), Icons daneben im
   Ordner `icons`.
 
@@ -44,7 +50,7 @@ Ein Repository kann in der Datei `.bolt/bolt.json` festlegen, wie es im Store er
   herauszeigen.
 - Der Store liest die Datei beim Hinzufügen und bei jeder Update-Suche neu ein.
 - Legt der Benutzer ein eigenes Icon für eine Anwendung fest, wird es lokal gespeichert und der Store liest den
-  Ordner `.bolt` ab dann nicht mehr (zurückschalten mit dem Menüpunkt *Ikon visszaállítása* / *Icon zurücksetzen*).
+  Ordner `.bolt` ab dann nicht mehr (zurückschalten mit dem Menüpunkt *Symbol zurücksetzen (.bolt)*).
 
 ## Entwicklung
 
@@ -56,6 +62,8 @@ dotnet run --project src/Bolt.App
 
 - `src/Bolt.Core` – Datenmodell (EF Core + SQLite), Forge-Clients, Paketauswahl, Installer, `StoreService`.
 - `src/Bolt.App` – Avalonia-Oberfläche (MVVM, CommunityToolkit.Mvvm).
+- `src/Bolt.*/Resources/Strings*.resx` – Oberflächen- und Meldungstexte, eine Datei pro Sprache (`Strings.resx` ist
+  Englisch).
 - `tests/Bolt.Core.Tests` – xUnit-Tests.
 
 Neue Migration: `dotnet ef migrations add <Name> --project src/Bolt.Core --output-dir Data/Migrations`.

@@ -1,5 +1,6 @@
 using Bolt.Core.Model;
 using Bolt.Core.Platform;
+using Bolt.Core.Resources;
 
 namespace Bolt.Core.Tests.Platform;
 
@@ -50,7 +51,7 @@ public class LinuxInstallerTests
         var ex = await Assert.ThrowsAsync<InstallerException>(
             () => new LinuxInstaller(PackageManager.Dnf, runner).UninstallAsync(installation));
 
-        Assert.Contains("megszakítva", ex.Message);
+        Assert.Equal(Strings.UninstallDenied, ex.Message);
         Assert.Equal(["pkexec", "dnf", "remove", "-y", "app"], runner.Calls[0]);
     }
 

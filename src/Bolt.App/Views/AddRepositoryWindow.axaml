@@ -1,26 +1,27 @@
 <rice:RiceWindow xmlns="https://github.com/avaloniaui"
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                  xmlns:rice="clr-namespace:KD.Avalonia.Rice.Controls;assembly=KD.Avalonia.Rice"
+                 xmlns:l="using:Bolt.App.Localization"
                  xmlns:vm="using:Bolt.App.ViewModels"
                  x:Class="Bolt.App.Views.AddRepositoryWindow"
                  x:DataType="vm:AddRepositoryViewModel"
-                 Title="Repó hozzáadása"
+                 Title="{l:Tr AddRepository}"
                  Width="560" SizeToContent="Height"
                  CanResize="False" CanMinimize="False" CanMaximize="False"
                  ShowThemeToggle="False" ShowInTaskbar="False"
                  WindowStartupLocation="CenterOwner">
-  <rice:RiceLoadingOverlay IsActive="{Binding IsBusy}" Message="Kiadások ellenőrzése…">
+  <rice:RiceLoadingOverlay IsActive="{Binding IsBusy}" Message="{l:Tr CheckingReleases}">
     <StackPanel Margin="24,20" Spacing="12">
-      <TextBlock FontSize="18" FontWeight="SemiBold" Text="Repó hozzáadása" />
+      <TextBlock FontSize="18" FontWeight="SemiBold" Text="{l:Tr AddRepository}" />
       <TextBlock TextWrapping="Wrap" Foreground="{DynamicResource RiceForegroundMutedBrush}"
-                 Text="GitHub, GitLab (gitlab.com vagy saját szerver) vagy Codeberg repó címe. A store csak akkor veszi fel, ha a kiadások (release) között van a rendszeredhez való csomag." />
-      <TextBox Name="UrlBox" Text="{Binding Url}" PlaceholderText="https://github.com/tulajdonos/repo" />
+                 Text="{l:Tr AddRepositoryHint}" />
+      <TextBox Name="UrlBox" Text="{Binding Url}" PlaceholderText="{l:Tr RepoUrlPlaceholder}" />
       <TextBlock Text="{Binding Message}" IsVisible="{Binding HasMessage}" TextWrapping="Wrap"
                  Classes.error="{Binding IsError}" />
       <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" Margin="0,8,0,0">
-        <Button Name="CloseButton" Content="Bezárás" IsCancel="True" MinWidth="96"
+        <Button Name="CloseButton" Content="{l:Tr Close}" IsCancel="True" MinWidth="96"
                 HorizontalContentAlignment="Center" />
-        <Button Classes="accent" Content="Hozzáadás" IsDefault="True" MinWidth="96"
+        <Button Classes="accent" Content="{l:Tr Add}" IsDefault="True" MinWidth="96"
                 HorizontalContentAlignment="Center" Command="{Binding AddCommand}" />
       </StackPanel>
     </StackPanel>

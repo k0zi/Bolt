@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from one translation table; keep the keys of all languages in sync. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDescription" xml:space="preserve">
+    <value>GitHub・GitLab・Codeberg のリリースから、システム標準のインストーラーでソフトウェアを導入するストア。</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>検索…</value>
+  </data>
+  <data name="Store" xml:space="preserve">
+    <value>ストア</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="AddRepository" xml:space="preserve">
+    <value>リポジトリを追加</value>
+  </data>
+  <data name="AddRepositoryHint" xml:space="preserve">
+    <value>GitHub、GitLab (gitlab.com またはセルフホスト)、Codeberg のリポジトリのアドレス。リリースにお使いのシステム用のパッケージが含まれている場合のみストアに追加されます。</value>
+  </data>
+  <data name="RepoUrlPlaceholder" xml:space="preserve">
+    <value>https://github.com/owner/repo</value>
+  </data>
+  <data name="CheckingReleases" xml:space="preserve">
+    <value>リリースを確認しています…</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>システム</value>
+  </data>
+  <data name="Platform" xml:space="preserve">
+    <value>プラットフォーム</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>データ</value>
+  </data>
+  <data name="ApiTokens" xml:space="preserve">
+    <value>API トークン</value>
+  </data>
+  <data name="ApiTokensHint" xml:space="preserve">
+    <value>ホストごとにトークンを設定できます (例: github.com、gitlab.com、codeberg.org、独自の GitLab)。API の上限が引き上げられ、プライベートリポジトリにも必要です。トークンは暗号化されずにデータベースに保存されるため、読み取り専用の権限で十分です (GitHub: fine-grained、Contents + Metadata read / GitLab: read_api)。</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="HostPlaceholder" xml:space="preserve">
+    <value>ホスト (例: github.com)</value>
+  </data>
+  <data name="Token" xml:space="preserve">
+    <value>トークン</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="TokenSaved" xml:space="preserve">
+    <value>トークンを保存しました: {0}</value>
+  </data>
+  <data name="MetadataHeader" xml:space="preserve">
+    <value>ストアのメタデータ (.bolt)</value>
+  </data>
+  <data name="MetadataHint" xml:space="preserve">
+    <value>リポジトリは .bolt/bolt.json ファイルでストアに表示する情報を指定できます。アイコンのパスは .bolt フォルダーからの相対パスです (png、jpg、webp、ico、bmp)。アプリケーションに独自のアイコンを設定すると、ストアはその .bolt フォルダーを読み込まなくなります。</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>外観</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="SetIcon" xml:space="preserve">
+    <value>アイコンを設定…</value>
+  </data>
+  <data name="ResetIcon" xml:space="preserve">
+    <value>アイコンをリセット (.bolt)</value>
+  </data>
+  <data name="OpenRepository" xml:space="preserve">
+    <value>リポジトリを開く</value>
+  </data>
+  <data name="RemoveFromStore" xml:space="preserve">
+    <value>ストアから削除</value>
+  </data>
+  <data name="RemoveFromStoreConfirm" xml:space="preserve">
+    <value>{0} をストアから削除します。リポジトリは後で再度追加できます。</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>アップデートあり</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>アップデートを確認</value>
+  </data>
+  <data name="CheckingForUpdates" xml:space="preserve">
+    <value>アップデートを確認しています…</value>
+  </data>
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>新しいバージョンがあります: {0}</value>
+  </data>
+  <data name="NoNewerVersion" xml:space="preserve">
+    <value>新しいバージョンはありません。</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>インストール</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>アップデート</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>アンインストール</value>
+  </data>
+  <data name="UninstallConfirm" xml:space="preserve">
+    <value>{0} をアンインストールしてもよろしいですか?</value>
+  </data>
+  <data name="Downloading" xml:space="preserve">
+    <value>ダウンロードしています…</value>
+  </data>
+  <data name="Installing" xml:space="preserve">
+    <value>インストールしています (パスワードを求められる場合があります)…</value>
+  </data>
+  <data name="Uninstalling" xml:space="preserve">
+    <value>アンインストールしています…</value>
+  </data>
+  <data name="Installed" xml:space="preserve">
+    <value>{0} をインストールしました。</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>{0} をアップデートしました。</value>
+  </data>
+  <data name="Uninstalled" xml:space="preserve">
+    <value>{0} をアンインストールしました。</value>
+  </data>
+  <data name="SavingIcon" xml:space="preserve">
+    <value>アイコンを保存しています…</value>
+  </data>
+  <data name="ResettingIcon" xml:space="preserve">
+    <value>アイコンをリセットしています…</value>
+  </data>
+  <data name="VersionInstalledUpdate" xml:space="preserve">
+    <value>インストール済み: {0} → 利用可能: {1}</value>
+  </data>
+  <data name="VersionInstalled" xml:space="preserve">
+    <value>インストール済み: {0}</value>
+  </data>
+  <data name="VersionLatest" xml:space="preserve">
+    <value>最新: {0}</value>
+  </data>
+  <data name="ReloadInstalledState" xml:space="preserve">
+    <value>インストール状態を再読み込み</value>
+  </data>
+  <data name="UpdateAll" xml:space="preserve">
+    <value>すべてアップデート ({0})</value>
+  </data>
+  <data name="UnsupportedSystem" xml:space="preserve">
+    <value>このシステムはサポートされていません ({0}): インストールできるのは Debian/Ubuntu (deb)、Fedora/openSUSE (rpm)、Windows (msi/exe) のみです。</value>
+  </data>
+  <data name="EmptyStoreTitle" xml:space="preserve">
+    <value>ストアはまだ空です</value>
+  </data>
+  <data name="EmptyStoreHint" xml:space="preserve">
+    <value>お使いのシステム用のパッケージをリリースに含む GitHub、GitLab、Codeberg のリポジトリを追加してください。</value>
+  </data>
+  <data name="InstalledGroup" xml:space="preserve">
+    <value>インストール済み</value>
+  </data>
+  <data name="AvailableGroup" xml:space="preserve">
+    <value>インストール可能</value>
+  </data>
+  <data name="NoInstalledApps" xml:space="preserve">
+    <value>インストール済みのアプリケーションはありません。</value>
+  </data>
+  <data name="AllInstalled" xml:space="preserve">
+    <value>すべてのアプリケーションがインストール済みです。</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>前のページ</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>次のページ</value>
+  </data>
+  <data name="PageText" xml:space="preserve">
+    <value>{0} / {1} ページ</value>
+  </data>
+  <data name="InstalledStateCheckFailed" xml:space="preserve">
+    <value>インストール状態を確認できませんでした: {0}</value>
+  </data>
+  <data name="AllUpToDate" xml:space="preserve">
+    <value>インストール済みのアプリケーションはすべて最新です。</value>
+  </data>
+  <data name="UpdatesAvailableCount" xml:space="preserve">
+    <value>{0} 個のアプリケーションにアップデートがあります。</value>
+  </data>
+  <data name="ReposUnreachable" xml:space="preserve">
+    <value>接続できなかったリポジトリ ({0}): {1}</value>
+  </data>
+  <data name="ChooseIcon" xml:space="preserve">
+    <value>アイコンを選択</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>画像</value>
+  </data>
+</root>

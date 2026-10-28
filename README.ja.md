@@ -1,5 +1,9 @@
 # Bolt
 
+<p align="center">
+  <img src="docs/assets/bolt-header.png" alt="Bolt — サーバーと流れるデータ" width="900" />
+</p>
+
 [English](README.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | [中文](README.zh.md) | **日本語** | [Magyar](README.hu.md)
 
 デスクトップ向けソフトウェアストア（Avalonia 12 + [KD.Avalonia.Rice](https://www.nuget.org/packages/KD.Avalonia.Rice)）。
@@ -23,6 +27,8 @@
 - **状態**：起動時に Bolt はインストール済みパッケージがまだ存在するかを確認します（外部で削除された場合 →
   インストール可能な一覧に戻ります）。
 - **API トークン**：設定でホストごとに任意のトークン（レート制限、プライベートリポジトリ用）を指定できます。
+- **言語**：UI は英語（既定）、ドイツ語、フランス語、スペイン語、ポルトガル語、中国語、日本語、ハンガリー語に対応しています。
+  設定で切り替えると、すぐに反映されます。
 - **データ**：SQLite、`~/.local/share/bolt/bolt.db`（Windows：`%LOCALAPPDATA%\bolt\bolt.db`）、アイコンは同じ場所の
   `icons` フォルダーに保存されます。
 
@@ -43,7 +49,7 @@
 - `icon` は `.bolt` フォルダーからの相対パス（png、jpg、webp、ico、bmp）で、フォルダーの外を指すことはできません。
 - ストアはリポジトリの追加時と、アップデートの確認のたびにファイルを読み直します。
 - ユーザーがアプリに独自のアイコンを設定すると、それはローカルに保存され、以降ストアは `.bolt` フォルダーを
-  読まなくなります（メニュー項目 *Ikon visszaállítása* / *アイコンをリセット* で元に戻せます）。
+  読まなくなります（メニュー項目 *アイコンをリセット (.bolt)* で元に戻せます）。
 
 ## 開発
 
@@ -55,6 +61,7 @@ dotnet run --project src/Bolt.App
 
 - `src/Bolt.Core` – データモデル（EF Core + SQLite）、フォージクライアント、パッケージ選択、インストーラー、`StoreService`。
 - `src/Bolt.App` – Avalonia UI（MVVM、CommunityToolkit.Mvvm）。
+- `src/Bolt.*/Resources/Strings*.resx` – UI とメッセージのテキスト。言語ごとに 1 ファイル（`Strings.resx` は英語）。
 - `tests/Bolt.Core.Tests` – xUnit テスト。
 
 新しいマイグレーション：`dotnet ef migrations add <名前> --project src/Bolt.Core --output-dir Data/Migrations`。

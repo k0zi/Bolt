@@ -1,5 +1,9 @@
 # Bolt
 
+<p align="center">
+  <img src="docs/assets/bolt-header.png" alt="Bolt — szerverek és áramló adatok" width="900" />
+</p>
+
 [English](README.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | [中文](README.zh.md) | [日本語](README.ja.md) | **Magyar**
 
 Asztali szoftver store (Avalonia 12 + [KD.Avalonia.Rice](https://www.nuget.org/packages/KD.Avalonia.Rice)).
@@ -23,6 +27,8 @@ telepíti:
 - **Állapot**: indításkor a Bolt ellenőrzi, hogy a telepített csomagok még megvannak-e (kívülről eltávolítva →
   visszakerül a telepíthetők közé).
 - **API tokenek**: hostonként opcionális token (rate limit, privát repók) a beállításokban.
+- **Nyelv**: a felület angolul (alapértelmezett), németül, franciául, spanyolul, portugálul, kínaiul, japánul és
+  magyarul érhető el; a beállításokban váltható, azonnal érvényes.
 - **Adatok**: SQLite, `~/.local/share/bolt/bolt.db` (Windows: `%LOCALAPPDATA%\bolt\bolt.db`), ikonok mellette az
   `icons` mappában.
 
@@ -43,7 +49,7 @@ A repó a `.bolt/bolt.json` fájlban adhatja meg, hogyan jelenjen meg a store-ba
 - Az `icon` a `.bolt` mappához képest relatív útvonal (png, jpg, webp, ico, bmp), nem mutathat a mappán kívülre.
 - A store a hozzáadáskor és minden frissítéskereséskor újraolvassa.
 - Ha a felhasználó saját ikont állít be egy alkalmazáshoz, az lokálisan mentődik, és onnantól a `.bolt` mappát nem
-  olvassa a store (az *Ikon visszaállítása* menüponttal kapcsolható vissza).
+  olvassa a store (az *Ikon visszaállítása (.bolt)* menüponttal kapcsolható vissza).
 
 ## Fejlesztés
 
@@ -55,6 +61,8 @@ dotnet run --project src/Bolt.App
 
 - `src/Bolt.Core` – adatmodell (EF Core + SQLite), forge kliensek, csomagválasztás, telepítők, `StoreService`.
 - `src/Bolt.App` – Avalonia UI (MVVM, CommunityToolkit.Mvvm).
+- `src/Bolt.*/Resources/Strings*.resx` – a felület és az üzenetek szövegei, nyelvenként egy fájl (`Strings.resx` az
+  angol).
 - `tests/Bolt.Core.Tests` – xUnit tesztek.
 
 Új migráció: `dotnet ef migrations add <Név> --project src/Bolt.Core --output-dir Data/Migrations`.
