@@ -62,3 +62,37 @@ dotnet run --project src/Bolt.App
 - `tests/Bolt.Core.Tests` – xUnit tests.
 
 New migration: `dotnet ef migrations add <Name> --project src/Bolt.Core --output-dir Data/Migrations`.
+
+## Linux packages
+
+```sh
+packaging/install.sh               # build the package for this distro and install it (apt / dnf / zypper)
+packaging/install.sh --uninstall   # remove it again
+packaging/build-packages.sh        # build both .deb and .rpm into artifacts/packages/
+packaging/build-packages.sh deb --skip-tests
+```
+
+- The packages are self-contained (no .NET runtime needed) and install to `/usr/lib/bolt`, with the launcher at
+  `/usr/bin/bolt`, a menu entry and an icon. Only `linux-x64` (amd64 / x86_64) is built.
+- They are built with [nfpm](https://nfpm.goreleaser.com/), which `build-packages.sh` downloads into
+  `artifacts/tools/` if it is not installed.
+- **Versioning** ([Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning)): `version.json` holds
+  `<year>.<month>` (e.g. `26.10`) and the number of commits since that line changed becomes the patch number
+  (`26.10.0`, `26.10.1`, ...). In a new month `build-packages.sh` updates `version.json` to the current month; commit
+  that change. Builds outside `main` and `v*` tags get a `~g<commit>` suffix so they sort before the release.
+  `dotnet tool restore && dotnet nbgv get-version` shows the current version.
+
+## Releases
+
+Every push to `main` and every pull request builds, tests and uploads the `.deb` and `.rpm` packages as a workflow
+artifact ([`build_n_publish.yml`](.github/workflows/build_n_publish.yml)). A GitHub release `v<version>` with the
+packages attached is created by any of:
+
+- **Tag push**: `dotnet nbgv tag` (tags HEAD as `v<its version>`), then `git push origin v<version>`.
+- **github.com**: *Releases → Draft a new release*, new tag `v<version>` on `main`. The workflow only attaches the
+  packages to that existing release.
+- **Manual run**: *Actions → Build and publish → Run workflow* with `publish` ticked; it tags the built commit
+  `v<version>` and creates the release.
+
+The tag must match the version computed for that commit, so create it with `dotnet nbgv tag` rather than picking a
+number by hand. CI never bumps `version.json`; it only warns when the month is out of date.

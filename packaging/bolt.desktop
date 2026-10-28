@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Bolt
+Comment=Software store for GitHub, GitLab and Codeberg releases
+Exec=@BIN@
+Icon=bolt
+Terminal=false
+Categories=System;PackageManager;
+StartupWMClass=Bolt

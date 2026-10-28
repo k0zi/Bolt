@@ -9,7 +9,6 @@
     <RootNamespace>Bolt.App</RootNamespace>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <ApplicationIcon>Assets/bolt.ico</ApplicationIcon>
-    <Version>0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
